@@ -1,0 +1,18 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Local tool settings
+.claude/
+
+# Python / Spark run outputs
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Build outputs
+target/
