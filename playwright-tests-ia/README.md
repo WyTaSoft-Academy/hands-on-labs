@@ -6,7 +6,10 @@ petit catalogue avec panier, connexion et commandes. Tout vise **Playwright
 
 ## Installer le poste
 
-Node.js 18 ou plus. Puis, une fois :
+**Première fois ? Suivez [`DEMARRER.md`](DEMARRER.md)**, pas à pas, avec un
+contrôle à chaque étape.
+
+En résumé, avec Node.js 18 ou plus :
 
 ```
 cd tests
