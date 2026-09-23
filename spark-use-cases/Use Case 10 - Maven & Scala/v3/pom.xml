@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.wts.kayan</groupId>
+  <artifactId>wtskayansparkall</artifactId>
+  <version>1.0.0</version>
+
+  <properties>
+    <!-- Java -->
+    <java.version>1.8</java.version>
+    <!-- Scala -->
+    <scala.version>2.12.18</scala.version>
+    <scala.dep.version>2.12</scala.dep.version>
+    <!-- Maven plugins -->
+    <maven-jar-plugin>2.6</maven-jar-plugin>
+    <maven-compiler-plugin>3.1</maven-compiler-plugin>
+    <maven-release-plugin>2.5.3</maven-release-plugin>
+    <scala-maven-plugin>3.2.2</scala-maven-plugin>
+    <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+    <!-- Spark -->
+    <spark-version>3.5.0</spark-version>
+    <!-- Hadoop (compatible Spark 3.5) -->
+    <hadoop>3.3.4</hadoop>
+    <!-- Main class -->
+    <pom.scala.mainclass>com.wts.kayan.app.job.MainDriver</pom.scala.mainclass>
+    <!-- Jar name -->
+    <jar-name>wts-training-spark</jar-name>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- Scala library -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+
+    <!-- Spark Core / SQL / Hive -->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_${scala.dep.version}</artifactId>
+      <version>${spark-version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_${scala.dep.version}</artifactId>
+      <version>${spark-version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-hive_${scala.dep.version}</artifactId>
+      <version>${spark-version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Avro support (built-in Spark 3.5) -->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-avro_${scala.dep.version}</artifactId>
+      <version>${spark-version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Hadoop client libs -->
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>${hadoop}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>${hadoop}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- HTTP client -->
+    <dependency>
+      <groupId>org.scalaj</groupId>
+      <artifactId>scalaj-http_2.12</artifactId>
+      <version>2.4.1</version>
+    </dependency>
+
+    <!-- Typesafe Config -->
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>1.4.2</version>
+    </dependency>
+
+    <!-- Logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+
+    <!-- Commons Email -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-email</artifactId>
+      <version>1.5</version>
+    </dependency>
+
+    <!-- PureConfig (scala 2.12) -->
+    <dependency>
+      <groupId>com.github.pureconfig</groupId>
+      <artifactId>pureconfig_${scala.dep.version}</artifactId>
+      <version>0.17.2</version>
+    </dependency>
+
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest_${scala.dep.version}</artifactId>
+      <version>3.2.16</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.holdenkarau</groupId>
+      <artifactId>spark-testing-base_${scala.dep.version}</artifactId>
+      <version>3.5.0_1.5.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Compiler -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <!-- Release -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin}</version>
+      </plugin>
+
+      <!-- Jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar-plugin}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${pom.scala.mainclass}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <!-- Scala support -->
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>${scala-maven-plugin}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Assembly -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${maven-assembly-plugin.version}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${pom.scala.mainclass}</mainClass>
+            </manifest>
+          </archive>
+          <finalName>${jar-name}</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <descriptors>
+            <descriptor>assembly/assembly.xml</descriptor>
+          </descriptors>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
