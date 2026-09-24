@@ -1,0 +1,11 @@
+      Name       │               Login                │   Password   │
+  ├─────────────────┼────────────────────────────────────┼──────────────┤
+  │ AZRARAK Mounia  │ playwright-stag1@orsysformation.fr │ hnTmvhhwZiA8 │
+  ├─────────────────┼────────────────────────────────────┼──────────────┤
+  │ NGUYEN Carine   │ playwright-stag2@orsysformation.fr │ qixm+kbDJ7+x │
+  ├─────────────────┼────────────────────────────────────┼──────────────┤
+  │ DAHOUMANE Karim │ playwright-stag3@orsysformation.fr │ h56Y#ug7GpmK │
+  ├─────────────────┼────────────────────────────────────┼──────────────┤
+  │ KABA Mory       │ playwright-stag4@orsysformation.fr │ 7msLUdB=JEA9 │
+  ├─────────────────┼────────────────────────────────────┼──────────────┤
+  │ GUERRIDA Rayan  │ playwright-stag5@orsysformation.fr │ QQcED+qxvtLt
