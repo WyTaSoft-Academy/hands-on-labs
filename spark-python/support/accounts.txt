@@ -1,0 +1,16 @@
+
+  ┌──────────────────┬──────────────────────────────────────┬──────────────┐
+  │       Name       │                Login                 │   Password   │
+  ├──────────────────┼──────────────────────────────────────┼──────────────┤
+  │ BEAUNE Arnaud    │ spark-python-stag1@orsysformation.fr │ 429?Y7Sh!GNM │
+  ├──────────────────┼──────────────────────────────────────┼──────────────┤
+  │ RICHARD Yann     │ spark-python-stag2@orsysformation.fr │ 2xtjfyr5j!Un │
+  ├──────────────────┼──────────────────────────────────────┼──────────────┤
+  │ DOGBE Edem       │ spark-python-stag3@orsysformation.fr │ GzCyf3GuXVqs │
+  ├──────────────────┼──────────────────────────────────────┼──────────────┤
+  │ VILOTEAU Rémi    │ spark-python-stag4@orsysformation.fr │ zaKT7ETmNjFC │
+  ├──────────────────┼──────────────────────────────────────┼──────────────┤
+  │ BURTEY Alice     │ spark-python-stag5@orsysformation.fr │ mCuxMACaB?y# │
+  ├──────────────────┼──────────────────────────────────────┼──────────────┤
+  │ AL CHAMMAS Karim │ spark-python-stag6@orsysformation.fr │ ?kS%gcjmcdm= │
+  └──────────────────┴──────────────────────────────────────┴──────────────┘
