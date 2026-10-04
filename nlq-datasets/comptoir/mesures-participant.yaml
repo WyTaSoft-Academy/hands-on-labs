@@ -1,0 +1,240 @@
+# =====================================================================
+# COMPTOIR — les mesures certifiées, à écrire.
+#
+# Version PARTICIPANT, à distribuer au lancement du TP 2.
+# Elle couvre les étapes 3 et 4 de l'énoncé.
+#
+# Format volontairement neutre : ce n'est la syntaxe d'aucun outil.
+# Les treize rubriques, elles, se retrouvent dans tous — y compris dans
+# le modèle sémantique de Cortex Analyst, vu en Partie 2.
+#
+# Six blocs, un par mesure à définir. Les familles sont imposées, les
+# noms et le reste sont à vous. Remplissez les treize lignes de chaque
+# bloc : une rubrique laissée vide est une décision laissée au moteur.
+#
+# Trois rubriques facultatives existent, et servent quand elles servent :
+#   format:               l'affichage, « # ##0 € » ou « 0,00 % »
+#   interdit:             le calcul qu'il ne faut jamais laisser faire
+#   note_implementation:  ce qu'un développeur doit savoir pour la coder
+# =====================================================================
+
+mesures:
+
+  # -------------------------------------------------------------------
+  # 1 · FAMILLE IMPOSÉE : STOCK
+  #     L'encours de crédit. La mesure la plus demandée, et celle qui se
+  #     somme entre régions mais jamais entre deux mois.
+  # -------------------------------------------------------------------
+  - nom:
+    libelle:
+    description:          # une phrase, pour quelqu'un qui ne connaît pas le métier
+    synonymes: []         # ce que le métier dit réellement, pas ce qu'il devrait dire
+    famille: STOCK
+    expression:
+    agregation_temps:     # SOMME | DERNIER | interdit
+    filtre_implicite:     # les soldés ? les contentieux ? décidez, et écrivez-le
+    grain_requis:
+    date_reference:
+    unite:
+    certifiee_par:        # un nom de direction, pas « l'équipe data »
+    revue_le:
+
+  # -------------------------------------------------------------------
+  # 2 · FAMILLE IMPOSÉE : FLUX
+  #     La production de crédit. C'est le piège de l'étape 3 :
+  #     montant_octroye est répété sur chaque ligne mensuelle du crédit.
+  #     Deux rubriques suffisent à l'écarter. Lesquelles ?
+  # -------------------------------------------------------------------
+  - nom:
+    libelle:
+    description:
+    synonymes: []
+    famille: FLUX
+    expression:
+    agregation_temps:
+    filtre_implicite:
+    grain_requis:         # au mois ? au crédit ? la réponse tient ici
+    date_reference:       # date d'arrêté ou date de déblocage ?
+    unite:
+    certifiee_par:
+    revue_le:
+
+  # -------------------------------------------------------------------
+  # 3 · FAMILLE IMPOSÉE : RATIO
+  #     Le taux moyen. Pas d'expression unique : un numérateur et un
+  #     dénominateur, pour que la division se fasse APRÈS agrégation,
+  #     au niveau demandé.
+  # -------------------------------------------------------------------
+  - nom:
+    libelle:
+    description:
+    synonymes: []
+    famille: RATIO
+    numerateur:
+    denominateur:
+    agregation_temps:
+    filtre_implicite:
+    grain_requis:
+    date_reference:
+    unite:
+    certifiee_par:
+    revue_le:
+
+  # -------------------------------------------------------------------
+  # 4 · FAMILLE IMPOSÉE : RATIO
+  #     La part des encours douteux. Question : son dénominateur est-il
+  #     une somme refaite ici, ou la mesure d'encours définie plus haut ?
+  # -------------------------------------------------------------------
+  - nom:
+    libelle:
+    description:
+    synonymes: []
+    famille: RATIO
+    numerateur:
+    denominateur:
+    agregation_temps:
+    filtre_implicite:
+    grain_requis:
+    date_reference:
+    unite:
+    certifiee_par:
+    revue_le:
+
+  # -------------------------------------------------------------------
+  # 5 · FAMILLE IMPOSÉE : COMPTAGE_DISTINCT
+  #     Les clients actifs. La définition écrite ici est celle qui sera
+  #     opposable : deux mois consécutifs partagent l'essentiel de leur
+  #     base, et un comptage ne se somme pas entre périodes.
+  # -------------------------------------------------------------------
+  - nom:
+    libelle:
+    description:
+    synonymes: []
+    famille: COMPTAGE_DISTINCT
+    expression:
+    agregation_temps:
+    filtre_implicite:
+    grain_requis:
+    date_reference:
+    unite:
+    certifiee_par:
+    revue_le:
+
+  # -------------------------------------------------------------------
+  # 6 · FAMILLE LIBRE
+  #     La sixième mesure est à vous. Choisissez-en une qui débloque une
+  #     des douze questions d'hier, et dites laquelle en commentaire.
+  #
+  #     Deux pistes, si vous hésitez : une table de faits exposée sans
+  #     mesure certifiée n'est pas finie — en avez-vous une dans ce cas ?
+  #     Et une moyenne, même quand elle n'a pas l'air d'un ratio, en est
+  #     un : à quel grain se calcule-t-elle ?
+  # -------------------------------------------------------------------
+  - nom:
+    libelle:
+    description:
+    synonymes: []
+    famille:
+    expression:
+    agregation_temps:
+    filtre_implicite:
+    grain_requis:
+    date_reference:
+    unite:
+    certifiee_par:
+    revue_le:
+
+
+# =====================================================================
+# LES ABSENCES, DÉCLARÉES
+#
+# Ce qui n'existe pas dans SOCLE ne s'invente pas au comptoir. Mais se
+# taire ne suffit pas : sans déclaration, le moteur cherche la colonne
+# la plus ressemblante et répond quand même.
+#
+# Trois sujets au moins sont dans ce cas — un quatrième se cache dans
+# une dimension qu'aucune source ne date. Pour chacun, écrivez la
+# réponse que le moteur doit rendre — et, quand il en existe un, le
+# faux ami qu'il ne doit surtout pas prendre pour un équivalent.
+# =====================================================================
+
+absences_declarees:
+
+  - sujet:
+    synonymes: []
+    reponse_attendue: >
+
+  - sujet:
+    synonymes: []
+    reponse_attendue: >
+
+  - sujet:
+    synonymes: []
+    reponse_attendue: >
+
+  - sujet:
+    synonymes: []
+    reponse_attendue: >
+
+
+# =====================================================================
+# ÉTAPE 4 — LES DOUZE QUESTIONS, REJOUÉES
+#
+# Une ligne par question : le verdict, et la phrase qui le justifie.
+# verdict : OUI (le moteur répond juste sans deviner)
+#           PARTIEL (il répond, mais il a tranché à votre place — dites quoi)
+#           NON (pas de réponse fiable — dites ce qui manque)
+#
+# Rappel : un modèle qui répondrait aux douze serait un modèle qui
+# invente. Les questions restées sans réponse sont un livrable.
+# =====================================================================
+
+questions_rejouees:
+
+  - n: 1   # Encours de crédit immobilier par région au dernier arrêté ?
+    verdict:
+    grace_a:        # la mesure et les dimensions qui la portent, ou ce qui manque
+
+  - n: 2   # Combien avons-nous de clients actifs ?
+    verdict:
+    grace_a:
+
+  - n: 3   # Production de crédits le mois dernier ?
+    verdict:
+    grace_a:
+
+  - n: 4   # Taux moyen des crédits immobiliers ?
+    verdict:
+    grace_a:
+
+  - n: 5   # Opérations par type le mois dernier ?
+    verdict:
+    grace_a:
+
+  - n: 6   # Solde moyen des comptes courants ?
+    verdict:
+    grace_a:
+
+  - n: 7   # Quelle agence porte le plus d'encours ?
+    verdict:
+    grace_a:
+
+  - n: 8   # Âge moyen de nos clients emprunteurs ?
+    verdict:
+    grace_a:
+
+  - n: 9   # Part des crédits douteux dans l'encours ?
+    verdict:
+    grace_a:
+
+  - n: 10  # Combien de clients ont quitté la banque ce trimestre ?
+    verdict:
+    grace_a:
+
+  - n: 11  # Taux de satisfaction client par agence ?
+    verdict:
+    grace_a:
+
+  - n: 12  # Quel canal a généré le plus de souscriptions ?
+    verdict:
+    grace_a:
