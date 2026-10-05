@@ -32,6 +32,11 @@ duckdb -ui socle.duckdb
 La première commande crée la base, la seconde ouvre l'interface dans le navigateur.
 À défaut, la console `duckdb socle.duckdb` suffit.
 
+**Sur Snowflake**, le même jeu de données est dans
+[`socle/socle-donnees-snowflake.sql`](socle/socle-donnees-snowflake.sql) : l'ouvrir
+dans une worksheet Snowsight, choisir un schéma où vous pouvez créer des tables (un
+schéma par binôme), et tout exécuter. Les données et les chiffres sont identiques.
+
 **Les conventions du jour**, pour que toutes les équipes parlent des mêmes dates :
 
 | Dans la question | On lit |

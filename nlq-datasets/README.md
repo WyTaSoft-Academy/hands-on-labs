@@ -15,6 +15,7 @@ langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique con
 | [`socle/modele-socle-participant.sql`](socle/modele-socle-participant.sql) | TP 1 | Le modèle existant : six tables, telles qu'elles sont, sans documentation |
 | [`tp1bis-enonce.md`](tp1bis-enonce.md) | TP 1 bis | Prouver le diagnostic : deux lectures défendables par défaut, et l'écart chiffré qu'elles produisent |
 | [`socle/socle-donnees-duckdb.sql`](socle/socle-donnees-duckdb.sql) | TP 1 bis | Le même modèle rempli des données d'une petite banque fictive, pour DuckDB |
+| [`socle/socle-donnees-snowflake.sql`](socle/socle-donnees-snowflake.sql) | TP 1 bis | Les mêmes données, en SQL Snowflake |
 | [`tp2-enonce.md`](tp2-enonce.md) | TP 2 | Les quatre étapes de la reformulation, et le gabarit de mesure |
 | [`comptoir/comptoir-participant.sql`](comptoir/comptoir-participant.sql) | TP 2 | Squelette des étapes 1 et 2 : tables, colonnes, grain. Ce qui reste à faire est marqué `<< ainsi >>` |
 | [`comptoir/mesures-participant.yaml`](comptoir/mesures-participant.yaml) | TP 2 | Squelette des étapes 3 et 4 : mesures, absences, questions à rejouer |
@@ -36,6 +37,9 @@ duckdb -ui socle.duckdb
 
 Sans installation possible, [shell.duckdb.org](https://shell.duckdb.org) fonctionne dans le
 navigateur : y coller le contenu du fichier.
+
+Sur **Snowflake**, ouvrir `socle/socle-donnees-snowflake.sql` dans une worksheet Snowsight,
+choisir un schéma où vous pouvez créer des tables (un par binôme), et tout exécuter.
 
 Le jeu de données est fictif. Aucune donnée réelle.
 
