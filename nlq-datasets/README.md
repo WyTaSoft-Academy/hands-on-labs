@@ -1,7 +1,7 @@
 # NLQ & Datasets — travaux pratiques
 
-Deux TP sur un **même jeu de données fictif** : une banque de détail ordinaire.
-Le TP 1 le diagnostique, le TP 2 le reformule pour qu'un moteur de requêtage en
+Un exercice et deux TP sur un **même jeu de données fictif** : une banque de détail ordinaire.
+L'exercice lit le SQL qu'un moteur a généré dessus, le TP 1 le diagnostique, le TP 2 le reformule pour qu'un moteur de requêtage en
 langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique consiste
 à passer du modèle `SOCLE` au modèle `COMPTOIR`.
 
@@ -9,6 +9,7 @@ langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique con
 
 | Fichier | TP | Contenu |
 |---|---|---|
+| [`exercice-sql-enonce.md`](exercice-sql-enonce.md) | Exercice | Quatre questions et le SQL qu'un moteur a généré : retrouver les décisions prises en silence |
 | [`tp1-enonce.md`](tp1-enonce.md) | TP 1 | Les douze questions du métier, la grille de diagnostic |
 | [`socle/modele-socle-participant.sql`](socle/modele-socle-participant.sql) | TP 1 | Le modèle existant : six tables, telles qu'elles sont, sans documentation |
 | [`tp2-enonce.md`](tp2-enonce.md) | TP 2 | Les quatre étapes de la reformulation, et le gabarit de mesure |
