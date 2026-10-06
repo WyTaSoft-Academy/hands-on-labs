@@ -1,0 +1,307 @@
+# =====================================================================
+# COMPTOIR — les mesures certifiées
+#
+# Format volontairement neutre : ce n'est la syntaxe d'aucun outil.
+# Les rubriques, elles, se retrouvent dans tous — y compris dans le
+# modèle sémantique de Cortex Analyst, vu en Partie 2.
+#
+# Huit mesures. C'est peu, et c'est le but : mieux vaut huit mesures
+# dont on répond que soixante que personne ne défend.
+#
+# Le TP en demande six, une par famille au minimum. Les deux autres
+# disent chacune quelque chose :
+#
+#   age_moyen_emprunteurs  est celle que presque personne ne déclare.
+#     Sans elle, la question 8 repose sur une moyenne que le moteur
+#     calcule au grain qu'il veut.
+#   nombre_credits         ne répond à aucune des douze questions, et
+#     elle est certifiée quand même : le comptoir sert le métier, pas
+#     l'exercice. Une mesure que le métier demande tous les mois se
+#     certifie, qu'elle figure ou non dans une liste d'énoncé.
+#
+# Et chaque table de faits exposée a au moins la sienne.
+# =====================================================================
+
+mesures:
+
+  # -------------------------------------------------------------------
+  # FAMILLE : STOCK
+  # -------------------------------------------------------------------
+  - nom: encours_credit
+    libelle: "Encours de crédit"
+    description: >
+      Capital restant dû à la date d'arrêté, pour les crédits non soldés.
+      Inclut les dossiers en contentieux et les créances douteuses : c'est
+      l'encours brut. N'inclut pas les crédits soldés.
+    synonymes: ["encours", "capital restant", "CRD", "stock de crédit", "encours de crédit"]
+    famille: STOCK
+    expression: SUM(capital_restant_du)
+    agregation_temps: DERNIER        # un stock ne se somme jamais entre deux mois
+    filtre_implicite: "statut_credit <> 'SOLDE'"
+    grain_requis: credit_mois
+    date_reference: date_arrete
+    unite: EUR
+    format: "# ##0 €"
+    certifiee_par: "Direction Financière"
+    revue_le: 2026-01-15
+
+  # -------------------------------------------------------------------
+  # FAMILLE : FLUX
+  # -------------------------------------------------------------------
+  - nom: production_credit
+    libelle: "Production de crédit"
+    description: >
+      Montant total des crédits débloqués sur la période, lu à la date de
+      déblocage. Un crédit compte une fois, le mois de son déblocage.
+    synonymes: ["production", "nouveaux crédits", "octrois", "déblocages"]
+    famille: FLUX
+    expression: SUM(montant_octroye)
+    agregation_temps: SOMME
+    filtre_implicite: aucun          # un crédit débloqué compte, quel que soit son statut aujourd'hui
+    grain_requis: credit             # ATTENTION : dédoublonner les lignes mensuelles
+    date_reference: date_deblocage   # et non date_arrete
+    note_implementation: >
+      montant_octroye est répété sur chaque ligne mensuelle du crédit. La mesure
+      doit lire une seule ligne par crédit, filtrée sur date_deblocage. C'est le
+      piège du modèle SOCLE, corrigé ici par la déclaration du grain requis.
+    unite: EUR
+    format: "# ##0 €"
+    certifiee_par: "Direction des Crédits"
+    revue_le: 2026-01-15
+
+  # -------------------------------------------------------------------
+  # FAMILLE : RATIO — numérateur et dénominateur exposés séparément
+  # -------------------------------------------------------------------
+  - nom: taux_moyen_pondere
+    libelle: "Taux moyen pondéré"
+    description: >
+      Taux nominal moyen, pondéré par le capital restant dû. Un crédit de
+      400 000 € pèse davantage qu'un crédit de 15 000 €.
+    synonymes: ["taux moyen", "taux", "taux client moyen"]
+    famille: RATIO
+    numerateur: SUM(taux_nominal * capital_restant_du)
+    denominateur: SUM(capital_restant_du)
+    agregation_temps: DERNIER
+    filtre_implicite: "statut_credit <> 'SOLDE'"   # le même périmètre que l'encours
+    grain_requis: credit_mois
+    date_reference: date_arrete
+    interdit: "AVG(taux_nominal)"
+    note_implementation: >
+      Ne jamais exposer taux_nominal comme mesure directe. La moyenne simple des
+      taux est fausse dès que les crédits ont des montants différents, et elle
+      est plausible — donc indétectable.
+    unite: "%"
+    format: "0,00 %"
+    certifiee_par: "Direction Financière"
+    revue_le: 2026-01-15
+
+  - nom: part_encours_douteux
+    libelle: "Part des encours douteux"
+    description: >
+      Part de l'encours de crédit portée par des crédits marqués douteux,
+      rapportée à l'encours de crédit du même périmètre.
+    synonymes: ["taux de douteux", "part de douteux", "créances douteuses", "CDL"]
+    famille: RATIO
+    numerateur: "encours_credit WHERE est_douteux"
+    denominateur: encours_credit     # la mesure certifiée, pas une somme refaite à côté
+    agregation_temps: DERNIER
+    filtre_implicite: hérité de encours_credit    # un seul encours dans le modèle
+    grain_requis: credit_mois
+    date_reference: date_arrete
+    note_implementation: >
+      Le ratio se calcule APRÈS agrégation, au niveau demandé. Une part nationale
+      n'est pas la moyenne des parts par agence. Numérateur et dénominateur
+      reprennent la mesure encours_credit et son filtre : un seul encours dans
+      le modèle.
+    unite: "%"
+    format: "0,0 %"
+    certifiee_par: "Direction des Risques"
+    revue_le: 2026-01-15
+
+  # -------------------------------------------------------------------
+  # FAMILLE : COMPTAGE DISTINCT
+  # -------------------------------------------------------------------
+  - nom: nombre_clients_actifs
+    libelle: "Nombre de clients actifs"
+    description: >
+      Clients détenant au moins un produit non clos ET ayant eu au moins une
+      opération dans les 90 jours précédant le dernier arrêté chargé.
+    synonymes: ["clients actifs", "base active", "clients en portefeuille"]
+    famille: COMPTAGE_DISTINCT
+    expression: COUNT(DISTINCT client_id)
+    agregation_temps: DERNIER        # un client actif deux mois compte une fois
+    filtre_implicite: "est_client_actif = TRUE"
+    grain_requis: client             # un client, une fois, quel que soit son nombre de produits
+    date_reference: photo_courante   # dim_client n'est pas historisée : aucune date ne s'applique
+    note_implementation: >
+      Ne jamais sommer un comptage entre périodes. Deux mois consécutifs partagent
+      l'essentiel de leur base. Cette mesure répond au présent et à lui seul :
+      dim_client n'étant pas historisée, « combien de clients actifs en mars ? »
+      relève de absences_declarees, pas de cette mesure.
+    unite: clients
+    certifiee_par: "Direction Commerciale"
+    revue_le: 2026-01-15
+
+  - nom: nombre_credits
+    libelle: "Nombre de crédits"
+    description: >
+      Nombre de crédits distincts non soldés à la date d'arrêté. Aucune des douze
+      questions du TP ne la demande : elle est certifiée parce que le métier la
+      pose, pas parce qu'un exercice en a besoin.
+    synonymes: ["nombre de dossiers", "nombre de prêts", "dossiers", "crédits en cours"]
+    famille: COMPTAGE_DISTINCT
+    expression: COUNT(DISTINCT credit_id)
+    agregation_temps: DERNIER
+    filtre_implicite: "statut_credit <> 'SOLDE'"
+    grain_requis: credit             # un crédit, une fois, quel que soit son nombre de photos mensuelles
+    date_reference: date_arrete
+    note_implementation: >
+      Le même périmètre que encours_credit, et c'est voulu : « combien de crédits »
+      et « combien d'encours » doivent porter sur la même population, sinon le
+      ratio des deux — un encours moyen par dossier — est faux.
+    unite: crédits
+    certifiee_par: "Direction des Crédits"
+    revue_le: 2026-01-15
+
+  # -------------------------------------------------------------------
+  # FAMILLE : FLUX — la table des opérations a, elle aussi, sa mesure.
+  # Une table de faits exposée sans mesure certifiée est une table que
+  # chaque question agrégera à sa façon.
+  # -------------------------------------------------------------------
+  - nom: nombre_operations
+    libelle: "Nombre d'opérations"
+    description: >
+      Nombre d'opérations passées sur la période, lues à la date d'opération.
+      Toutes natures de comptes et tous sens confondus, sauf filtre explicite.
+    synonymes: ["opérations", "nombre de mouvements", "mouvements", "transactions"]
+    famille: FLUX
+    expression: COUNT(operation_id)
+    agregation_temps: SOMME          # deux mois d'opérations s'additionnent
+    filtre_implicite: aucun
+    grain_requis: operation
+    date_reference: date_operation   # et non date_comptabilisation
+    interdit: "SUM(montant)"         # montant est signé : débits et crédits s'annulent
+    note_implementation: >
+      montant n'est pas exposé comme mesure : la colonne est signée, et une somme
+      naïve mélange débits et crédits pour produire un solde de flux que personne
+      n'a demandé. Un montant par sens se déclare comme mesure distincte, avec son
+      filtre écrit.
+    unite: opérations
+    certifiee_par: "Direction des Opérations"
+    revue_le: 2026-01-15
+
+  # -------------------------------------------------------------------
+  # FAMILLE : RATIO — une moyenne est un ratio, même quand elle n'en a
+  # pas l'air. Sans cette mesure, la question 8 reposait sur un AVG non
+  # déclaré, et le grain décidait du résultat.
+  # -------------------------------------------------------------------
+  - nom: age_moyen_emprunteurs
+    libelle: "Âge moyen des emprunteurs"
+    description: >
+      Âge moyen des clients portant au moins un crédit non soldé. Chaque client
+      compte une fois, quel que soit son nombre de crédits.
+    synonymes: ["âge moyen", "âge des emprunteurs", "âge moyen des clients"]
+    famille: RATIO
+    numerateur: SUM(age)
+    denominateur: COUNT(DISTINCT client_id)
+    agregation_temps: DERNIER
+    filtre_implicite: "est_emprunteur = TRUE"
+    grain_requis: client             # JAMAIS sur une jointure aux faits
+    date_reference: photo_courante   # dim_client n'est pas historisée
+    interdit: "AVG(age) sur une jointure à encours_credit_mensuel"
+    note_implementation: >
+      Le piège n'est pas la moyenne, c'est le grain. Jointe aux faits, la même
+      moyenne pondère chaque client par son nombre de crédits et de photos
+      mensuelles : un client à trois crédits pèse trente-six fois. La mesure se
+      calcule sur dim_client, et nulle part ailleurs.
+    unite: ans
+    certifiee_par: "Direction Commerciale"
+    revue_le: 2026-01-15
+
+
+# =====================================================================
+# LES ABSENCES, DÉCLARÉES
+#
+# Déclarer ce qu'on n'a pas vaut mieux que laisser le moteur approcher
+# avec ce qui ressemble. Un moteur qui dit « je n'ai pas cette
+# information » rend un meilleur service qu'un moteur qui substitue
+# l'agence au canal.
+# =====================================================================
+
+absences_declarees:
+
+  - sujet: "satisfaction client"
+    synonymes: ["satisfaction", "NPS", "avis client", "réclamations"]
+    reponse_attendue: >
+      Cette information n'est pas disponible dans ce périmètre. Aucune source de
+      satisfaction n'alimente l'entrepôt à ce jour.
+
+  - sujet: "solde de compte historisé"
+    synonymes: ["solde", "solde moyen", "solde des comptes", "solde du compte courant"]
+    reponse_attendue: >
+      Le solde des comptes n'est pas historisé : la seule valeur disponible n'a
+      pas de date connue. Aucune moyenne ni évolution ne peut être calculée.
+      L'historisation du solde est inscrite au programme des évolutions.
+
+  - sujet: "canal de souscription"
+    synonymes: ["canal", "en ligne", "digital", "guichet", "courtier"]
+    reponse_attendue: >
+      Le canal de souscription n'est pas collecté. L'agence portant le dossier
+      n'est PAS un équivalent : un crédit souscrit en ligne peut être rattaché
+      administrativement à une agence.
+
+  - sujet: "statut client à une date passée"
+    synonymes: ["clients actifs en", "clients actifs à l'époque", "emprunteurs l'an dernier",
+                "base active en mars", "combien de clients actifs au 31/12"]
+    reponse_attendue: >
+      dim_client décrit l'état courant et n'est pas historisée : la source ne date
+      pas le statut client. Le nombre de clients actifs ou d'emprunteurs ne peut
+      être rendu qu'au présent. Le nombre d'aujourd'hui n'est PAS un équivalent
+      d'une date passée, et l'appliquer à un mois antérieur produirait un chiffre
+      faux et stable. L'historisation du statut client est un projet, pas une
+      déclaration.
+
+
+# =====================================================================
+# QUESTIONS D'EXEMPLE — elles servent de tests, pas de documentation.
+# À rejouer à chaque évolution du modèle.
+# =====================================================================
+
+questions_exemple:
+  - question: "Quel est l'encours de crédit immobilier par région au dernier arrêté ?"
+    mesure: encours_credit
+    dimensions: [dim_produit.sous_famille, dim_agence.region]
+    attendu: "Filtre sous_famille = 'Immobilier', un seul date_arrete, région de l'agence porteuse."
+
+  - question: "Quel est le taux moyen des crédits immobiliers ?"
+    mesure: taux_moyen_pondere
+    attendu: "Pondération par le capital. Un écart de plusieurs dixièmes de point avec la moyenne simple."
+
+  - question: "Combien de clients actifs ?"
+    mesure: nombre_clients_actifs
+    attendu: "Définition à 90 jours appliquée, sans que l'utilisateur ait à la formuler."
+
+  - question: "Combien d'opérations par type le mois dernier ?"
+    mesure: nombre_operations
+    dimensions: [operation_compte.type_operation]
+    attendu: "Comptage sur date_operation, jamais sur date_comptabilisation. Aucune somme de montant."
+
+  - question: "Combien de crédits en cours ?"
+    mesure: nombre_credits
+    attendu: "Un crédit compté une fois, au dernier arrêté. Même périmètre que encours_credit : soldés exclus."
+
+  - question: "Quel est l'âge moyen de nos clients emprunteurs ?"
+    mesure: age_moyen_emprunteurs
+    attendu: "Calcul sur dim_client, un client une fois. Une jointure aux faits donnerait un âge pondéré par le nombre de crédits."
+
+  - question: "Quel est le taux de satisfaction par agence ?"
+    mesure: null
+    attendu: "Refus documenté, via absences_declarees. Aucun chiffre ne doit sortir."
+
+  - question: "Combien avions-nous de clients actifs en mars dernier ?"
+    mesure: null
+    attendu: "Refus documenté : dim_client n'est pas historisée. Le chiffre d'aujourd'hui ne doit pas être rendu à la place."
+
+  - question: "Quel est le solde moyen des comptes courants ?"
+    mesure: null
+    attendu: "Refus documenté. type_compte permet de désigner les comptes courants, mais aucun solde daté n'existe."

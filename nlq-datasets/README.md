@@ -55,4 +55,30 @@ Sur Snowflake : `comptoir/comptoir-donnees-snowflake.sql`, de la même façon qu
 
 Le jeu de données est fictif. Aucune donnée réelle.
 
-Les corrigés ne sont pas publiés : ils sont présentés en restitution.
+## Les corrigés
+
+À ouvrir **après la restitution** de chaque TP : les lire avant, c'est se priver de
+l'exercice. Il n'y a pas de corrigé unique : ils expliquent les décisions prises, et
+pourquoi elles restent discutables.
+
+| Fichier | TP | Contenu |
+|---|---|---|
+| [`exercice-sql-corrige.md`](exercice-sql-corrige.md) | Exercice | Les décisions prises en silence, leur effet sur le chiffre, les requêtes attendues |
+| [`exercice-sql-demo-duckdb.sql`](exercice-sql-demo-duckdb.sql) | Exercice | Chaque requête du moteur à côté de la requête attendue, sur un petit `SOCLE` rempli |
+| [`socle/modele-socle.sql`](socle/modele-socle.sql) | TP 1 | Le modèle existant, avec ses douze défauts commentés |
+| [`tp1-corrige.md`](tp1-corrige.md) | TP 1 | Classement attendu, cause par question, les trois défauts les plus coûteux |
+| [`tp1bis-corrige.md`](tp1bis-corrige.md) | TP 1 bis | Les écarts attendus, les individus qui les portent, les lectures à refuser |
+| [`tp1-demo-duckdb.sql`](tp1-demo-duckdb.sql) | TP 1 bis | Les deux lectures de chaque question, chiffrées, pour DuckDB |
+| [`tp1-demo-snowflake.sql`](tp1-demo-snowflake.sql) | TP 1 bis | Les mêmes requêtes, en SQL Snowflake |
+| [`tp2-corrige.md`](tp2-corrige.md) | TP 2 | Les douze questions rejouées, et les décisions qui méritent discussion |
+| [`comptoir/modele-comptoir.sql`](comptoir/modele-comptoir.sql) | TP 2 | Le modèle reformulé : grain déclaré, hiérarchies à plat, colonnes techniques retirées |
+| [`comptoir/mesures-comptoir.yaml`](comptoir/mesures-comptoir.yaml) | TP 2 | Les mesures certifiées, les absences déclarées, les questions d'exemple |
+| [`comptoir/modele-comptoir-duckdb.sql`](comptoir/modele-comptoir-duckdb.sql) | TP 2 | `COMPTOIR` en vues sur `SOCLE` rempli, et les douze questions rejouées avec leur résultat, pour DuckDB |
+| [`comptoir/modele-comptoir-snowflake.sql`](comptoir/modele-comptoir-snowflake.sql) | TP 2 | Le même corrigé en Snowflake, avec la vue sémantique (`CREATE SEMANTIC VIEW`) |
+
+Les fichiers `-demo-` et `modele-comptoir-*.sql` s'exécutent depuis ce dossier :
+
+```
+duckdb -c ".read tp1-demo-duckdb.sql"
+duckdb -c ".read comptoir/modele-comptoir-duckdb.sql"
+```
