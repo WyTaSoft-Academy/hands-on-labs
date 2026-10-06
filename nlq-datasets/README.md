@@ -19,6 +19,8 @@ langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique con
 | [`tp2-enonce.md`](tp2-enonce.md) | TP 2 | Les quatre étapes de la reformulation, et le gabarit de mesure |
 | [`comptoir/comptoir-participant.sql`](comptoir/comptoir-participant.sql) | TP 2 | Squelette des étapes 1 et 2 : tables, colonnes, grain. Ce qui reste à faire est marqué `<< ainsi >>` |
 | [`comptoir/mesures-participant.yaml`](comptoir/mesures-participant.yaml) | TP 2 | Squelette des étapes 3 et 4 : mesures, absences, questions à rejouer |
+| [`comptoir/comptoir-donnees-duckdb.sql`](comptoir/comptoir-donnees-duckdb.sql) | Après le TP 2 | Le modèle `COMPTOIR` de référence, rempli des mêmes données, pour DuckDB (schéma `comptoir`) |
+| [`comptoir/comptoir-donnees-snowflake.sql`](comptoir/comptoir-donnees-snowflake.sql) | Après le TP 2 | Les mêmes données, en SQL Snowflake |
 
 On travaille en binôme, de préférence un profil technique avec un profil métier.
 
@@ -40,6 +42,16 @@ navigateur : y coller le contenu du fichier.
 
 Sur **Snowflake**, ouvrir `socle/socle-donnees-snowflake.sql` dans une worksheet Snowsight,
 choisir un schéma où vous pouvez créer des tables (un par binôme), et tout exécuter.
+
+**Après le TP 2**, le modèle `COMPTOIR` de référence existe aussi rempli, pour rejouer les
+douze questions sur un modèle reformulé :
+
+```
+duckdb comptoir.duckdb -c ".read comptoir/comptoir-donnees-duckdb.sql"
+duckdb -ui comptoir.duckdb
+```
+
+Sur Snowflake : `comptoir/comptoir-donnees-snowflake.sql`, de la même façon que `SOCLE`.
 
 Le jeu de données est fictif. Aucune donnée réelle.
 
