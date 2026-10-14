@@ -147,6 +147,74 @@ def compter_niveaux(lignes):
     return compteur
 ```
 
+### Pourquoi le `0` dans `compteur.get(niveau, 0)` ?
+
+La première fois qu'on rencontre un niveau, par exemple `ERROR`, la clé n'existe pas
+encore dans le dictionnaire. Lire `compteur["ERROR"]` lèverait une erreur :
+
+```python
+compteur = {}
+compteur["ERROR"]          # KeyError: 'ERROR'
+```
+
+`get` ne plante pas : si la clé est absente, il rend la valeur par défaut qu'on lui donne
+en second argument. Avec `0`, on part de zéro, ce qui est exactement un compteur qui
+n'a encore rien compté :
+
+```python
+compteur.get("ERROR", 0)   # 0 : la clé n'existe pas encore
+```
+
+Déroulé sur `["t INFO", "t ERROR", "t INFO"]` :
+
+| ligne | `niveau` | `compteur.get(niveau, 0)` | `+ 1` | `compteur` après |
+|---|---|---|---|---|
+| `t INFO` | `INFO` | 0 (absente) | 1 | `{'INFO': 1}` |
+| `t ERROR` | `ERROR` | 0 (absente) | 1 | `{'INFO': 1, 'ERROR': 1}` |
+| `t INFO` | `INFO` | 1 (déjà comptée) | 2 | `{'INFO': 2, 'ERROR': 1}` |
+
+Sans valeur par défaut, `compteur.get(niveau)` rendrait `None`, et `None + 1` lève une
+`TypeError`. La ligne fait donc deux choses à la fois : **créer** la clé la première fois,
+**incrémenter** ensuite. Sans `get`, il faudrait écrire :
+
+```python
+if niveau in compteur:
+    compteur[niveau] = compteur[niveau] + 1
+else:
+    compteur[niveau] = 1
+```
+
+### Et `compteur[niveau] = compteur[niveau] + 1` ?
+
+Pas tel quel : ça plante dès la première ligne.
+
+```python
+compteur = {}
+compteur["INFO"] = compteur["INFO"] + 1     # KeyError: 'INFO'
+```
+
+Python évalue d'abord le côté **droit** : il doit **lire** `compteur["INFO"]`, qui n'existe
+pas encore. Une écriture crée bien la clé, mais elle n'arrive jamais : la lecture échoue
+avant. Pour que cette ligne marche, il faut d'abord créer la clé à 0 :
+
+```python
+if niveau not in compteur:
+    compteur[niveau] = 0
+compteur[niveau] = compteur[niveau] + 1
+```
+
+C'est ce que fait `get(niveau, 0) + 1`, en une seule ligne. Deux autres façons, avec le
+module `collections` de la bibliothèque standard :
+
+| Écriture | Ce qu'elle fait |
+|---|---|
+| `compteur[niveau] = compteur.get(niveau, 0) + 1` | La version du TP |
+| `if niveau not in compteur: …` puis `compteur[niveau] + 1` | Plus long, très explicite |
+| `compteur = defaultdict(int)` puis `compteur[niveau] += 1` | Une clé absente vaut automatiquement 0 |
+| `Counter(niveaux)` | Tout le comptage en un appel |
+
+Pour le TP, retenez `get` : c'est le schéma de base.
+
 Les vérifications de `depart.py` appliquent déjà la fonction au vrai journal. Pour
 l'essayer à la main :
 
