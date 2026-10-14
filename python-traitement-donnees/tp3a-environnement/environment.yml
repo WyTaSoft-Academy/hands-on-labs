@@ -1,0 +1,17 @@
+# Environnement du projet Air'Cité — voie conda
+#   conda env create -f environment.yml
+#   conda activate aircite
+name: aircite
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pandas>=2.2,<3        # tout le code de la formation a tourné sur pandas 2.3
+  - numpy>=2,<3
+  - matplotlib
+  - scipy
+  - pyarrow               # Parquet
+  - openpyxl              # Excel
+  - python-duckdb         # bonus du TP 4b : du SQL sur un CSV ou un DataFrame
+  - jupyterlab
+  - ipykernel

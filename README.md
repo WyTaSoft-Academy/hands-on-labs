@@ -9,6 +9,7 @@ Each folder is a self-contained training.
 | [`spark-python/`](spark-python/README.md) | Spark Python — six progressive labs on one dataset (in French) | PySpark 3.5.4 |
 | [`playwright-tests-ia/`](playwright-tests-ia/README.md) | Playwright et IA — four labs and 25 exercises on one demo app (in French) | Playwright 1.63, TypeScript |
 | [`nlq-datasets/`](nlq-datasets/README.md) | NLQ & Datasets — two design labs: diagnose a model, then make it queryable in natural language (in French) | SQL DDL, YAML (nothing to run) |
+| [`python-traitement-donnees/`](python-traitement-donnees/README.md) | Python, initiation au traitement de données — nine labs on one air-quality dataset (in French) | Python 3.11, pandas 2.3, NumPy, Matplotlib, SciPy |
 | [`qlik-cloud-analytics/`](qlik-cloud-analytics/) | Qlik Cloud Analytics dashboard use case | Qlik Cloud |
 
 Solutions are not published: the labs are meant to be worked through.
