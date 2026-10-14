@@ -1,0 +1,17 @@
+# Produits par les participants ou par les corrigés : régénérables, non versionnés.
+# Les données de donnees/ et les copies d'entrée des TP, elles, sont versionnées.
+outils.py
+tp2a-classes-fichiers/resume.csv
+tp2b-logs-sqlite-csv/mesures.csv
+tp2b-logs-sqlite-csv/alertes.txt
+tp3a-environnement/env-*.yml
+tp3a-environnement/requirements-fige.txt
+tp3b-jupyter-formats/*.xlsx
+tp3b-jupyter-formats/*.json
+tp3b-jupyter-formats/*.html
+*.parquet
+tp4-scipy-stack/*.png
+tp4-scipy-stack/*.xlsx
+.venv*/
+.ipynb_checkpoints/
+__pycache__/

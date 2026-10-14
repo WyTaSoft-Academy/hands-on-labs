@@ -1,0 +1,13 @@
+# Environnement du projet Air'Cité — voie venv + pip
+#   python -m venv .venv
+#   .venv\Scripts\Activate.ps1          (Windows)  ·  source .venv/bin/activate
+#   python -m pip install -r requirements.txt
+pandas>=2.2,<3
+numpy>=2,<3
+matplotlib
+scipy
+pyarrow
+openpyxl
+duckdb              # bonus du TP 4b : du SQL sur un CSV ou un DataFrame
+jupyterlab
+ipykernel
