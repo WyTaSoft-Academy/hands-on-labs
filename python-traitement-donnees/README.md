@@ -23,7 +23,7 @@ TP 4c  carte et spectre                       mesures.csv → carte, spectre
 
 | Dossier | Module | Contenu |
 |---|---|---|
-| [`tp1a-algorithmique/`](tp1a-algorithmique/enonce.md) | 1 | `enonce.md`, `depart.py` (vérifications OK / ÉCHEC) |
+| [`tp1a-algorithmique/`](tp1a-algorithmique/enonce.md) | 1 | `enonce.md`, `depart.py` (vérifications OK / ÉCHEC), [`pas-a-pas.md`](tp1a-algorithmique/pas-a-pas.md) (méthode et squelettes à trous) |
 | [`tp1b-modules-dates/`](tp1b-modules-dates/enonce.md) | 1 | `enonce.md`, `depart.py`, `horodatages-aq03.txt` |
 | [`tp2a-classes-fichiers/`](tp2a-classes-fichiers/enonce.md) | 2 | `enonce.md`, `depart.py`, `extrait-journal.log` (les 120 premières lignes du journal) |
 | [`tp2b-logs-sqlite-csv/`](tp2b-logs-sqlite-csv/enonce.md) | 2 | `enonce.md`, `depart.py`, `capteurs.db`, `journal-capteurs.log` |

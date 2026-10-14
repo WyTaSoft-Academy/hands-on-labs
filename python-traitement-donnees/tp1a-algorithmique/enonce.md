@@ -9,6 +9,7 @@ Quatre étapes. Bloqué sur une fonction, passez à la suivante et revenez-y.
 | Fichier | Contenu |
 |---|---|
 | `depart.py` | Les fonctions à compléter, et des vérifications qui affichent `OK` ou `ÉCHEC` |
+| `pas-a-pas.md` | La méthode et un squelette à trous pour chaque fonction, si vous êtes bloqué |
 | `../donnees/journal-capteurs.log` | Le journal des capteurs Air'Cité, pour l'étape 4 |
 
 Lancez vos scripts **depuis ce dossier** : `python depart.py`.
