@@ -2,7 +2,7 @@
 
 **Durée :** ≈ 50 min, dont 5 de restitution · **Module 2**, en fin de matinée · individuel
 
-Le TP 2a a lu un extrait du journal avec `split()`. Ici, le journal entier, une regex
+Le TP 2a a lu un extrait du journal déjà converti en CSV. Ici, le journal entier, une regex
 pour reconnaître les mesures, et la base pour y ajouter le quartier.
 
 Les capteurs Air'Cité écrivent un journal texte, une ligne par événement. Le module 4

@@ -3,7 +3,7 @@
     python depart.py      (depuis le dossier tp2a-classes-fichiers)
 
 Complétez les TODO, puis relancez : les vérifications en bas du fichier affichent
-OK ou ÉCHEC. Pas de regex aujourd'hui : split() suffit.
+OK ou ÉCHEC. Pas de regex aujourd'hui : le module csv découpe les lignes.
 """
 import csv
 
@@ -36,11 +36,12 @@ class Capteur:
 
 def lire(chemin):
     """Rend (capteurs, ecartees) : un dictionnaire identifiant → Capteur, et le nombre
-    de lignes qui ne sont pas une mesure complète (6 champs, niveau INFO)."""
+    de lignes qui ne sont pas une mesure complète (7 champs, niveau INFO)."""
     capteurs = {}
     ecartees = 0
-    # TODO : with open(chemin, encoding="utf-8") as f: … ligne.split() …
-    #        no2 : "no2=41.2".split("=")[1] donne "41.2"
+    # TODO : with open(chemin, encoding="utf-8", newline="") as f: … csv.reader(f) …
+    #        next(lecteur) passe la ligne d'en-tête ; chaque ligne suivante est une liste,
+    #        et le NO2 est champs[3] : "41.2", ou "" s'il manque
     return capteurs, ecartees
 
 
@@ -63,7 +64,7 @@ if __name__ == "__main__":
     if hasattr(a, "mesures"):
         a.ajouter("41.2")
         verifier("une liste par capteur", (len(a.mesures), len(b.mesures)), (1, 0))
-    capteurs, ecartees = lire("extrait-journal.log")
+    capteurs, ecartees = lire("extrait-journal.csv")
     verifier("capteurs lus", len(capteurs), 12)
     verifier("lignes écartées", ecartees, 4)
     if "AQ-01" in capteurs:
