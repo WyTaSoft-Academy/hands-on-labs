@@ -6,7 +6,8 @@
     capteurs.db            la base SQLite des capteurs (table capteurs)
     journal-capteurs.log   le journal brut, tel que les capteurs l'émettent (TP 2)
     mesures.csv            la copie de référence de ce que produit le TP 2 (TP 3, TP 4)
-et copie les fichiers d'entrée dans les dossiers des TP 1b, 2a et 2b.
+et copie les fichiers d'entrée dans les dossiers des TP 1b, 2a et 2b (l'extrait du
+journal du TP 2a, converti en CSV).
 
 Le tirage est déterministe (graines fixes) : tout le monde obtient les mêmes chiffres,
 ceux des slides et des corrigés. Il demande NumPy et pandas (fournis par Anaconda).
@@ -126,6 +127,26 @@ def ecrire_horodatages_tp1(mesures, chemin):
     return 7 * 24 - len(garde)
 
 
+def ecrire_extrait_csv(lignes, chemin):
+    """TP 2a : les premières lignes du journal, en CSV.
+
+    Une mesure donne horodatage,INFO,capteur,no2,pm10,temp et un message vide ; une
+    erreur garde son message en dernière colonne. Une ligne tronquée le reste : on
+    n'écrit que les champs reçus, soit moins de 7.
+    """
+    with open(chemin, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(["horodatage", "niveau", "capteur", "no2", "pm10", "temp", "message"])
+        for ligne in lignes:
+            champs = ligne.split()
+            if len(champs) == 6 and champs[1] == "INFO":
+                w.writerow(champs[:3] + [c.split("=", 1)[1] for c in champs[3:]] + [""])
+            elif len(champs) >= 4 and champs[1] in ("ERROR", "WARN"):
+                w.writerow(champs[:3] + ["", "", "", " ".join(champs[3:])])
+            else:
+                w.writerow(champs[:3] + [c.split("=", 1)[-1] for c in champs[3:]])
+
+
 def main():
     mesures = tirer_mesures()
     ecrire_base(ICI / "capteurs.db")
@@ -135,8 +156,7 @@ def main():
     for nom in ("capteurs.db", "journal-capteurs.log"):
         shutil.copy(ICI / nom, TP / "tp2b-logs-sqlite-csv" / nom)
     extrait = (ICI / "journal-capteurs.log").read_text(encoding="utf-8").splitlines()[:120]
-    (TP / "tp2a-classes-fichiers" / "extrait-journal.log").write_text(
-        "\n".join(extrait) + "\n", encoding="utf-8")
+    ecrire_extrait_csv(extrait, TP / "tp2a-classes-fichiers" / "extrait-journal.csv")
     print(f"capteurs.db            {len(CAPTEURS)} capteurs")
     print(f"journal-capteurs.log   {n} lignes")
     print(f"mesures.csv            {len(mesures)} mesures, {mesures['no2'].isna().sum()} NO2 manquants")
