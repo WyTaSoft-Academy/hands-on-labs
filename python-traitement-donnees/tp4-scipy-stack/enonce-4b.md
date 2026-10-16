@@ -6,7 +6,7 @@ On exploite enfin le CSV produit au TP 2b. Votre `mesures.csv`
 (`../tp2b-logs-sqlite-csv/mesures.csv`), ou la copie de référence `../donnees/mesures.csv` :
 c'est le même fichier. La base des capteurs est `../donnees/capteurs.db`.
 
-Fichiers : `depart-4b.ipynb` (à compléter) ; le corrigé est présenté en restitution.
+Fichiers : `depart-4b.ipynb` (à compléter), `corrige-4b.ipynb` (projeté en restitution).
 
 ## Étapes
 

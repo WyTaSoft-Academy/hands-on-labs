@@ -6,7 +6,7 @@ Une image couleur est un tableau à trois dimensions. Tout ce TP se fait **sans 
 chaque opération porte sur le tableau entier. Aucune donnée à copier : l'image
 (`grace_hopper.jpg`) est livrée avec Matplotlib.
 
-Fichiers : `depart-4a.ipynb` (à compléter) ; le corrigé est présenté en restitution.
+Fichiers : `depart-4a.ipynb` (à compléter), `corrige-4a.ipynb` (projeté en restitution).
 
 ## Étapes
 

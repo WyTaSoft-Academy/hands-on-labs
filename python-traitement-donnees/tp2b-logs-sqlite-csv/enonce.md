@@ -16,6 +16,7 @@ régulière, et un fichier CSV dont on sait exactement ce qu'il a écarté.
 | `capteurs.db` | Base SQLite, table `capteurs(id, nom, quartier, lat, lon, mise_en_service)` |
 | `journal-capteurs.log` | Le journal brut des quatre semaines, en UTF-8 |
 | `depart.py` | Le squelette à compléter |
+| `corrige.py` | Le corrigé, projeté en restitution |
 
 Lancez vos scripts **depuis ce dossier** : les chemins sont relatifs.
 
@@ -57,7 +58,7 @@ Parcourez le journal ligne à ligne. Pour chaque mesure reconnue, écrivez une l
 `horodatage,capteur,quartier,no2,pm10,temp` avec le module `csv` (`newline=""`,
 `encoding="utf-8"`). Une valeur manquante reste une **cellule vide**. Triez les lignes par
 capteur puis par horodatage avant de les écrire : le fichier devient comparable à celui
-présenté en restitution.
+du corrigé.
 
 ### 4. Compter les rejets, par cause
 

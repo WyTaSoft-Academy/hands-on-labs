@@ -12,4 +12,6 @@ Each folder is a self-contained training.
 | [`python-traitement-donnees/`](python-traitement-donnees/README.md) | Python, initiation au traitement de données — nine labs on one air-quality dataset (in French) | Python 3.11, pandas 2.3, NumPy, Matplotlib, SciPy |
 | [`qlik-cloud-analytics/`](qlik-cloud-analytics/) | Qlik Cloud Analytics dashboard use case | Qlik Cloud |
 
-Solutions are not published: the labs are meant to be worked through.
+Solutions are not published: the labs are meant to be worked through. Exceptions:
+[`nlq-datasets/`](nlq-datasets/README.md) and [`python-traitement-donnees/`](python-traitement-donnees/README.md)
+publish theirs, next to each lab.
