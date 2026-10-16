@@ -17,6 +17,7 @@ Fichiers : `depart-4b.ipynb` (à compléter) ; le corrigé est présenté en res
    `m["no2"] = m.groupby("capteur")["no2"].transform(lambda s: s.interpolate())`.
    Il reste un trou : lequel, et pourquoi ? `interpolate(limit_direction="both")` le comble.
    Bloqué ? Le détail pas à pas : [`interpoler-par-capteur.md`](interpoler-par-capteur.md).
+   Retirer les lignes sans NO2 plutôt que les combler : [`exclure-no2-manquants.md`](exclure-no2-manquants.md).
 3. **Classer.** NO2 moyen et maximum par quartier, triés ; puis par capteur avec son nom,
    en joignant la table `capteurs` (`pd.read_sql` + `merge`). Vérifiez que la jointure
    garde 8 064 lignes.
