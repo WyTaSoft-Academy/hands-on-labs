@@ -6,7 +6,7 @@ Le dernier TP réutilise tout : pandas pour préparer, NumPy pour convertir, Sci
 calculer, Matplotlib pour montrer. La première cellule de `depart-4c.ipynb` reconstruit le
 DataFrame interpolé du TP 4b.
 
-Fichiers : `depart-4c.ipynb` (à compléter) ; le corrigé est présenté en restitution.
+Fichiers : `depart-4c.ipynb` (à compléter), `corrige-4c.ipynb` (projeté en restitution).
 Si le temps presse, faites les étapes 2 et 4 : ce sont les deux livrables visibles.
 
 ## Étapes

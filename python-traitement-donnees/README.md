@@ -4,8 +4,8 @@ Neuf TP, **deux par module** (trois au module 4), sur un seul jeu de données : 
 un réseau **fictif** de 12 capteurs de qualité de l'air répartis dans 4 quartiers, qui
 mesurent chaque heure pendant quatre semaines (2 au 29 mars 2026).
 
-Chaque dossier contient un **énoncé** et un **point de départ** à compléter. Les corrigés
-sont présentés en restitution, à la fin de chaque TP ; ceux des TP 1a et 2a sont publiés.
+Chaque dossier contient un **énoncé**, un **point de départ** à compléter et son **corrigé**.
+Cherchez d'abord : le corrigé sert à vérifier, ou à débloquer une étape.
 
 ## Le fil
 
@@ -24,12 +24,12 @@ TP 4c  carte et spectre                       mesures.csv → carte, spectre
 | Dossier | Module | Contenu |
 |---|---|---|
 | [`tp1a-algorithmique/`](tp1a-algorithmique/enonce.md) | 1 | `enonce.md`, `depart.py` (vérifications OK / ÉCHEC), [`pas-a-pas.md`](tp1a-algorithmique/pas-a-pas.md) (méthode et squelettes à trous), [`corrige.py`](tp1a-algorithmique/corrige.py) (corrigé commenté) |
-| [`tp1b-modules-dates/`](tp1b-modules-dates/enonce.md) | 1 | `enonce.md`, `depart.py`, `horodatages-aq03.txt` |
+| [`tp1b-modules-dates/`](tp1b-modules-dates/enonce.md) | 1 | `enonce.md`, `depart.py`, [`corrige.py`](tp1b-modules-dates/corrige.py), [`corrige_outils.py`](tp1b-modules-dates/corrige_outils.py) (le module `outils.py` corrigé), `horodatages-aq03.txt` |
 | [`tp2a-classes-fichiers/`](tp2a-classes-fichiers/enonce.md) | 2 | `enonce.md`, `depart.py`, [`corrige.py`](tp2a-classes-fichiers/corrige.py), `extrait-journal.csv` (les 120 premières lignes du journal, en CSV) |
-| [`tp2b-logs-sqlite-csv/`](tp2b-logs-sqlite-csv/enonce.md) | 2 | `enonce.md`, `depart.py`, `capteurs.db`, `journal-capteurs.log` |
+| [`tp2b-logs-sqlite-csv/`](tp2b-logs-sqlite-csv/enonce.md) | 2 | `enonce.md`, `depart.py`, [`corrige.py`](tp2b-logs-sqlite-csv/corrige.py), `capteurs.db`, `journal-capteurs.log` |
 | [`tp3a-environnement/`](tp3a-environnement/enonce.md) | 3 | `enonce.md`, `environment.yml`, `requirements.txt`, `verifier_env.py` |
-| [`tp3b-jupyter-formats/`](tp3b-jupyter-formats/enonce.md) | 3 | `enonce.md`, `depart-3b.ipynb` |
-| [`tp4-scipy-stack/`](tp4-scipy-stack/) | 4 | `enonce-4a/4b/4c.md`, `depart-4a/4b/4c.ipynb`, [`interpoler-par-capteur.md`](tp4-scipy-stack/interpoler-par-capteur.md) (TP 4b, étape 2 pas à pas), [`exclure-no2-manquants.md`](tp4-scipy-stack/exclure-no2-manquants.md) (retirer les NO2 manquants), [`classer-et-joindre.md`](tp4-scipy-stack/classer-et-joindre.md) (TP 4b, étape 3 pas à pas), [`tracer-le-profil.md`](tp4-scipy-stack/tracer-le-profil.md) (TP 4b, étape 4 : le tracé ligne par ligne) |
+| [`tp3b-jupyter-formats/`](tp3b-jupyter-formats/enonce.md) | 3 | `enonce.md`, `depart-3b.ipynb`, [`corrige-3b.ipynb`](tp3b-jupyter-formats/corrige-3b.ipynb) (exécuté) |
+| [`tp4-scipy-stack/`](tp4-scipy-stack/) | 4 | `enonce-4a/4b/4c.md`, `depart-4a/4b/4c.ipynb`, `corrige-4a/4b/4c.ipynb` (exécutés), [`interpoler-par-capteur.md`](tp4-scipy-stack/interpoler-par-capteur.md) (TP 4b, étape 2 pas à pas), [`exclure-no2-manquants.md`](tp4-scipy-stack/exclure-no2-manquants.md) (retirer les NO2 manquants), [`classer-et-joindre.md`](tp4-scipy-stack/classer-et-joindre.md) (TP 4b, étape 3 pas à pas), [`tracer-le-profil.md`](tp4-scipy-stack/tracer-le-profil.md) (TP 4b, étape 4 : le tracé ligne par ligne) |
 | [`support/`](support/) | — | Le support de cours en PDF |
 | `donnees/` | — | Les fichiers de référence et leur générateur |
 

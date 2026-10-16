@@ -10,6 +10,7 @@ du TP 3a, et on compare ce que chaque format de fichier garde ou perd.
 | Fichier | Contenu |
 |---|---|
 | `depart-3b.ipynb` | Le notebook à compléter |
+| `corrige-3b.ipynb` | Le corrigé exécuté, projeté en restitution |
 | `../tp3a-environnement/verifier_env.py` | Le test de l'environnement, lancé depuis le notebook |
 | `../donnees/mesures.csv` | La copie de référence, si votre TP 2b n'a pas abouti |
 

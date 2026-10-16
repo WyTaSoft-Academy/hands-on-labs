@@ -10,6 +10,8 @@ Deux parties **indépendantes** : bloqué sur l'import, passez aux dates et reve
 |---|---|
 | `depart.py` | Les fonctions de date à compléter, et des vérifications `OK` / `ÉCHEC` |
 | `horodatages-aq03.txt` | Les horodatages reçus du capteur AQ-03 pendant la première semaine |
+| `corrige_outils.py` | Le corrigé des étapes 1 et 2 (votre `outils.py`) |
+| `corrige.py` | Le corrigé des étapes 3 et 4, projeté en restitution |
 
 Lancez vos scripts **depuis ce dossier** : `import outils` ne trouve le fichier que s'il est
 dans le dossier courant.
@@ -17,7 +19,8 @@ dans le dossier courant.
 ## 1. Un module à soi
 
 Créez `outils.py` dans ce dossier et copiez-y vos fonctions du TP 1a, au moins
-`plus_longue_serie` et `compter_niveaux` (pas fini le TP 1a ? Demandez-les au formateur).
+`plus_longue_serie` et `compter_niveaux` (pas fini le TP 1a ? Copiez-les depuis
+`../tp1a-algorithmique/corrige.py`).
 
 Ajoutez à la fin d'`outils.py` :
 
