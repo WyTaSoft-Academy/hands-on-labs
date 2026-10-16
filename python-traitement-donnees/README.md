@@ -46,6 +46,9 @@ recrée à l'identique (tirage déterministe ; demande NumPy et pandas).
 
 ## Installer le poste
 
+Jamais utilisé Python ? [`demarrer-python.md`](demarrer-python.md) part de zéro, pas à pas :
+installer Python, écrire et lancer ses premiers scripts, créer un environnement, ouvrir Jupyter.
+
 Anaconda (ou Miniforge) suffit pour les TP des modules 1, 2 et 4. Le TP 3a crée
 l'environnement dédié `aircite` :
 
