@@ -13,6 +13,7 @@ on écrit un petit résumé en CSV. L'extrait est déjà un CSV : pas de regex, 
 |---|---|
 | `extrait-journal.csv` | Les 120 premières lignes du journal Air'Cité (le 2 mars, de 0 h à 9 h), en CSV : `horodatage,niveau,capteur,no2,pm10,temp,message` |
 | `depart.py` | La classe et les fonctions à compléter, et des vérifications `OK` / `ÉCHEC` |
+| `corrige.py` | Le corrigé, projeté en restitution |
 
 Lancez vos scripts **depuis ce dossier** : `python depart.py`.
 
