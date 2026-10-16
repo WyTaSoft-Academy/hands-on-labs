@@ -143,13 +143,34 @@ entière, comme pour le profil journalier (voir [`tracer-le-profil.md`](tracer-l
 ```python
 for q, ids in cap.groupby("quartier")["id"]:
     fig, ax = plt.subplots(figsize=(9, 4))
-    jour[ids.tolist()].plot(ax=ax)
+    jour[ids.tolist()].plot(ax=ax, x_compat=True)
     ax.set_title(f"NO2 moyen journalier : {q}")
+    ax.set_xlabel("")
     ax.set_ylabel("NO2 (µg/m³)")
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=mdates.MO))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%d/%m"))
+    ax.xaxis.set_minor_locator(mdates.DayLocator())
     ax.grid(alpha=.3)
     fig.savefig(f"journalier-{q}.png", dpi=120, bbox_inches="tight")
     plt.close(fig)
 ```
+
+**L'axe des dates.** Sans les trois lignes `ax.xaxis.set_…`, pandas écrit une étiquette par
+jour : `02`, `03`, `04`… jusqu'à `29`, collées les unes aux autres, avec `Mar 2026` en dessous.
+Avec elles :
+
+- `set_major_locator(WeekdayLocator(byweekday=mdates.MO))` : une **étiquette** chaque lundi,
+  soit 5 dates lisibles (`02/03`, `09/03`, `16/03`, `23/03`, `30/03`) ;
+- `set_major_formatter(DateFormatter("%d/%m"))` : écrites jour/mois ;
+- `set_minor_locator(DayLocator())` : un **petit trait** sans texte pour chaque jour, pour
+  garder le repère quotidien sans encombrer l'axe.
+
+`x_compat=True` est indispensable : sans lui, pandas garde la main sur l'axe des dates et
+ignore ces trois réglages.
+
+> **Encore trop serré ?** Penchez les étiquettes : `ax.tick_params(axis="x", labelrotation=45)`,
+> ou élargissez la figure : `figsize=(12, 4)`. Pour écrire le jour de la semaine, `"%a %d/%m"`
+> donne `Mon 09/03` : en anglais, car Python suit la langue par défaut du système.
 
 On obtient 4 fichiers : `journalier-Centre.png`, `journalier-Gare.png`, `journalier-Port.png`
 et `journalier-Université.png`.
@@ -177,5 +198,6 @@ Les différences avec la version sur une feuille :
 | `ax.axhline(40, linestyle="--")` | Une ligne horizontale de référence |
 | `mdates.WeekdayLocator(byweekday=mdates.MO)` | Une graduation par lundi |
 | `mdates.DateFormatter("%d/%m")` | Les dates écrites `09/03` |
+| `mdates.DayLocator()` en `set_minor_locator` | Un petit trait par jour, sans texte |
 | `fig.suptitle(...)`, `fig.tight_layout()` | Un titre pour la feuille, des espacements recalculés |
 | `plt.close(fig)` | Fermer une figure créée dans une boucle |
