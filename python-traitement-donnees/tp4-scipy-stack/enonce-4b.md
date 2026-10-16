@@ -24,6 +24,7 @@ Fichiers : `depart-4b.ipynb` (à compléter) ; le corrigé est présenté en res
    Bloqué ? Le détail pas à pas : [`classer-et-joindre.md`](classer-et-joindre.md).
 4. **Le profil journalier.** Colonne `heure`, `pivot_table` heure × quartier, tracé avec
    titre et unités, enregistré dans `profil.png`.
+   Le tracé expliqué ligne par ligne : [`tracer-le-profil.md`](tracer-le-profil.md).
 5. **Semaine et week-end.** Le tableau quartier × type de jour, la baisse en %, un graphique
    en barres groupées (`semaine.png`).
 
