@@ -1,0 +1,11 @@
+ ┌────────────────────────┬───────────────────────────────────────────────────┬──────────────┐
+  │        Trainee         │                       Login                       │   Password   │
+  ├────────────────────────┼───────────────────────────────────────────────────┼──────────────┤
+  │ OLIVIER Emerson        │ python-traitement-donnees-stag1@orsysformation.fr │ M3RTJ7nMfWHp │
+  ├────────────────────────┼───────────────────────────────────────────────────┼──────────────┤
+  │ OSEREDCZUK Marine      │ python-traitement-donnees-stag2@orsysformation.fr │ c!6SKMSXT6YJ │
+  ├────────────────────────┼───────────────────────────────────────────────────┼──────────────┤
+  │ UL HASSAN SHAH Nohaiza │ python-traitement-donnees-stag3@orsysformation.fr │ D%crS4L7Zrwx │
+  ├────────────────────────┼───────────────────────────────────────────────────┼──────────────┤
+  │ COUDRAY Patrick        │ python-traitement-donnees-stag4@orsysformation.fr │ 8kBCU%sDoAdL │
+  └────────────────────────┴───────────────────────────────────────────────────┴──────────────┘
