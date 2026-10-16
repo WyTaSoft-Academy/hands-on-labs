@@ -21,6 +21,7 @@ Fichiers : `depart-4b.ipynb` (à compléter) ; le corrigé est présenté en res
 3. **Classer.** NO2 moyen et maximum par quartier, triés ; puis par capteur avec son nom,
    en joignant la table `capteurs` (`pd.read_sql` + `merge`). Vérifiez que la jointure
    garde 8 064 lignes.
+   Bloqué ? Le détail pas à pas : [`classer-et-joindre.md`](classer-et-joindre.md).
 4. **Le profil journalier.** Colonne `heure`, `pivot_table` heure × quartier, tracé avec
    titre et unités, enregistré dans `profil.png`.
 5. **Semaine et week-end.** Le tableau quartier × type de jour, la baisse en %, un graphique
