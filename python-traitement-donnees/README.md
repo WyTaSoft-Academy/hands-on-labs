@@ -29,7 +29,7 @@ TP 4c  carte et spectre                       mesures.csv → carte, spectre
 | [`tp2b-logs-sqlite-csv/`](tp2b-logs-sqlite-csv/enonce.md) | 2 | `enonce.md`, `depart.py`, `capteurs.db`, `journal-capteurs.log` |
 | [`tp3a-environnement/`](tp3a-environnement/enonce.md) | 3 | `enonce.md`, `environment.yml`, `requirements.txt`, `verifier_env.py` |
 | [`tp3b-jupyter-formats/`](tp3b-jupyter-formats/enonce.md) | 3 | `enonce.md`, `depart-3b.ipynb` |
-| [`tp4-scipy-stack/`](tp4-scipy-stack/) | 4 | `enonce-4a/4b/4c.md`, `depart-4a/4b/4c.ipynb`, [`interpoler-par-capteur.md`](tp4-scipy-stack/interpoler-par-capteur.md) (TP 4b, étape 2 pas à pas) |
+| [`tp4-scipy-stack/`](tp4-scipy-stack/) | 4 | `enonce-4a/4b/4c.md`, `depart-4a/4b/4c.ipynb`, [`interpoler-par-capteur.md`](tp4-scipy-stack/interpoler-par-capteur.md) (TP 4b, étape 2 pas à pas), [`exclure-no2-manquants.md`](tp4-scipy-stack/exclure-no2-manquants.md) (retirer les NO2 manquants) |
 | [`support/`](support/) | — | Le support de cours en PDF |
 | `donnees/` | — | Les fichiers de référence et leur générateur |
 
