@@ -40,7 +40,8 @@ Deux figures, `profil.png` et `semaine.png`, et trois chiffres à annoncer.
 ## Bonus 1
 
 Moyennes journalières par capteur (`resample("D")`), exportées dans un classeur Excel,
-un onglet par quartier (`pd.ExcelWriter`).
+un onglet par quartier (`pd.ExcelWriter`). Le code expliqué morceau par morceau :
+[`journalier-excel.md`](journalier-excel.md).
 
 ## Bonus 2 — Les mêmes questions en SQL, avec DuckDB
 
