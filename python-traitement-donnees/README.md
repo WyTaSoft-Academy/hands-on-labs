@@ -5,7 +5,7 @@ un réseau **fictif** de 12 capteurs de qualité de l'air répartis dans 4 quart
 mesurent chaque heure pendant quatre semaines (2 au 29 mars 2026).
 
 Chaque dossier contient un **énoncé** et un **point de départ** à compléter. Les corrigés
-sont présentés en restitution, à la fin de chaque TP ; celui du TP 1a est publié.
+sont présentés en restitution, à la fin de chaque TP ; ceux des TP 1a et 2a sont publiés.
 
 ## Le fil
 
@@ -25,7 +25,7 @@ TP 4c  carte et spectre                       mesures.csv → carte, spectre
 |---|---|---|
 | [`tp1a-algorithmique/`](tp1a-algorithmique/enonce.md) | 1 | `enonce.md`, `depart.py` (vérifications OK / ÉCHEC), [`pas-a-pas.md`](tp1a-algorithmique/pas-a-pas.md) (méthode et squelettes à trous), [`corrige.py`](tp1a-algorithmique/corrige.py) (corrigé commenté) |
 | [`tp1b-modules-dates/`](tp1b-modules-dates/enonce.md) | 1 | `enonce.md`, `depart.py`, `horodatages-aq03.txt` |
-| [`tp2a-classes-fichiers/`](tp2a-classes-fichiers/enonce.md) | 2 | `enonce.md`, `depart.py`, `extrait-journal.csv` (les 120 premières lignes du journal, en CSV) |
+| [`tp2a-classes-fichiers/`](tp2a-classes-fichiers/enonce.md) | 2 | `enonce.md`, `depart.py`, [`corrige.py`](tp2a-classes-fichiers/corrige.py), `extrait-journal.csv` (les 120 premières lignes du journal, en CSV) |
 | [`tp2b-logs-sqlite-csv/`](tp2b-logs-sqlite-csv/enonce.md) | 2 | `enonce.md`, `depart.py`, `capteurs.db`, `journal-capteurs.log` |
 | [`tp3a-environnement/`](tp3a-environnement/enonce.md) | 3 | `enonce.md`, `environment.yml`, `requirements.txt`, `verifier_env.py` |
 | [`tp3b-jupyter-formats/`](tp3b-jupyter-formats/enonce.md) | 3 | `enonce.md`, `depart-3b.ipynb` |
