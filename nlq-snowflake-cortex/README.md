@@ -1,8 +1,9 @@
-# NLQ, Partie 2 — Snowflake Intelligence & Cortex Analyst
+# NLQ, Partie 2 — Snowflake CoWork & Cortex Analyst
 
 La suite pratique de [`../nlq-datasets/`](../nlq-datasets/README.md) : le même jeu de données
 fictif, une banque de détail ordinaire, cette fois interrogé en langage naturel dans Snowflake.
-Le jour 3 explore le modèle avec **Snowflake Intelligence**, le jour 4 le prépare et le teste
+Le jour 3 explore le modèle avec **Snowflake CoWork** (anciennement Snowflake Intelligence,
+le nom retenu par le programme), le jour 4 le prépare et le teste
 pour **Cortex Analyst**, en comparant le SQL généré à un SQL de référence.
 
 ## Les fichiers
@@ -17,7 +18,7 @@ Le modèle `COMPTOIR` et ses huit mesures, construits pendant la Partie 1, sont 
 
 ## Ce qu'il faut
 
-Un compte Snowflake où **Snowflake Intelligence et Cortex Analyst** sont activés, et un schéma
+Un compte Snowflake où **Snowflake CoWork et Cortex Analyst** sont activés, et un schéma
 où vous pouvez créer des tables, un par binôme.
 
 Ouvrir `socle/socle-donnees-snowflake.sql` dans une worksheet Snowsight, choisir ce schéma, et
