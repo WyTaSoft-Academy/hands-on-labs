@@ -24,6 +24,11 @@ langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique con
 
 On travaille en binôme, de préférence un profil technique avec un profil métier.
 
+## Le support de cours
+
+[`support/nlq-datasets-partie-1.pdf`](support/nlq-datasets-partie-1.pdf) : les slides des deux
+jours en un seul PDF (129 pages), une slide par page, sans les notes du formateur.
+
 ## Presque rien à installer
 
 Les fichiers `.sql` sont du DDL **à lire**, pas à exécuter : les TP sont des exercices
@@ -57,4 +62,5 @@ Le jeu de données est fictif. Aucune donnée réelle.
 
 ## Les corrigés
 
-Les corrigés sont présentés en restitution, pendant la formation. Ils ne sont pas publiés dans ce dépôt.
+Les corrigés sont présentés en restitution, pendant la formation. Les fichiers de corrigé ne sont pas
+publiés dans ce dépôt ; le support de cours reprend en revanche les slides de restitution des TP 1 et 2.
