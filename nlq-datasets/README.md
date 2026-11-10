@@ -1,8 +1,9 @@
 # NLQ & Datasets — travaux pratiques
 
-Un exercice et trois TP sur un **même jeu de données fictif** : une banque de détail ordinaire.
+Un exercice et cinq TP sur un **même jeu de données fictif** : une banque de détail ordinaire.
 L'exercice lit le SQL qu'un moteur a généré dessus, le TP 1 le diagnostique, le TP 1 bis
-chiffre ce diagnostic, le TP 2 le reformule pour qu'un moteur de requêtage en
+chiffre ce diagnostic. Les TP 3 et 4, deux échauffements, préparent le TP 2,
+qui reformule le modèle pour qu'un moteur de requêtage en
 langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique consiste
 à passer du modèle `SOCLE` au modèle `COMPTOIR`.
 
@@ -16,6 +17,8 @@ langage naturel (NLQ) puisse l'interroger sans deviner. Tout le fil pratique con
 | [`tp1bis-enonce.md`](tp1bis-enonce.md) | TP 1 bis | Prouver le diagnostic : deux lectures défendables par défaut, et l'écart chiffré qu'elles produisent |
 | [`socle/socle-donnees-duckdb.sql`](socle/socle-donnees-duckdb.sql) | TP 1 bis | Le même modèle rempli des données d'une petite banque fictive, pour DuckDB |
 | [`socle/socle-donnees-snowflake.sql`](socle/socle-donnees-snowflake.sql) | TP 1 bis | Les mêmes données, en SQL Snowflake |
+| [`tp3-enonce.md`](tp3-enonce.md) | TP 3 | Échauffement : écrire une seule mesure certifiée, ligne par ligne |
+| [`tp4-enonce.md`](tp4-enonce.md) | TP 4 | Échauffement : traduire huit expressions du métier en filtres exacts, et les codes en libellés |
 | [`tp2-enonce.md`](tp2-enonce.md) | TP 2 | Les quatre étapes de la reformulation, et le gabarit de mesure |
 | [`comptoir/comptoir-participant.sql`](comptoir/comptoir-participant.sql) | TP 2 | Squelette des étapes 1 et 2 : tables, colonnes, grain. Ce qui reste à faire est marqué `<< ainsi >>` |
 | [`comptoir/mesures-participant.yaml`](comptoir/mesures-participant.yaml) | TP 2 | Squelette des étapes 3 et 4 : mesures, absences, questions à rejouer |
@@ -27,7 +30,7 @@ On travaille en binôme, de préférence un profil technique avec un profil mét
 ## Le support de cours
 
 [`support/nlq-datasets-partie-1.pdf`](support/nlq-datasets-partie-1.pdf) : les slides des deux
-jours en un seul PDF (129 pages), une slide par page, sans les notes du formateur.
+jours en un seul PDF (131 pages), une slide par page, sans les notes du formateur.
 
 ## Presque rien à installer
 
