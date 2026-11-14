@@ -1,0 +1,53 @@
+client_id;nom;prenom;date_naissance;email;ville;code_postal;segment;agence_id;date_entree
+CLI000001;MOREL;Louise;01/12/1985;louise.morel14@exemple-mail.fr;Paris;75009;PARTICULIER;AG01;08/07/2019
+CLI000002;SILVA;Alice;06/12/1989;alice.silva74@exemple-mail.fr;Paris;75011;PARTICULIER;AG02;08/06/2014
+CLI000003;DIALLO;Philippe;15/01/1984;philippe.diallo76@exemple-mail.fr;Puteaux;92800;PARTICULIER;AG03;05/11/2021
+CLI000004;DAVID;Théo;30/03/1947;theo.david37@exemple-mail.fr;Versailles;78000;PARTICULIER;AG04;27/06/2007
+CLI000005;FRANÇOIS;Jade;20/06/2001;jade.francois87@exemple-mail.fr;Créteil;94000;PARTICULIER;AG05;31/12/2015
+CLI000006;MICHEL;Hugo;11/03/1971;hugo.michel46@exemple-mail.fr;Lyon;69003;PARTICULIER;AG06;04/11/2025
+CLI000007;FONTAINE;Arthur;05/11/1946;arthur.fontaine44@exemple-mail.fr;Lyon;69002;PARTICULIER;AG07;21/03/2021
+CLI000008;GUERIN;Sarah;20/10/1965;sarah.guerin19@exemple-mail.fr;Grenoble;38000;PARTICULIER;AG08;06/04/2015
+CLI000009;DUMONT;Sofiane;21/09/1967;sofiane.dumont91@exemple-mail.fr;Clermont-Ferrand;63000;PARTICULIER;AG09;22/07/2005
+CLI000010;LEFÈVRE;Gabriel;19/02/1948;gabriel.lefevre75@exemple-mail.fr;Marseille;13001;PARTICULIER;AG10;11/12/2013
+CLI000011;GARNIER;Philippe;02/03/1978;philippe.garnier97@exemple-mail.fr;Nice;06000;PATRIMONIAL;AG11;11/05/2016
+CLI000012;DA;Karim;25/01/1987;karim.da54@exemple-mail.fr;Toulon;83000;PARTICULIER;AG12;20/10/2010
+CLI000013;LEGRAND;Laurent;11/04/1942;laurent.legrand29@exemple-mail.fr;Toulouse;31000;PARTICULIER;AG13;28/11/2017
+CLI000014;LEROY;David;21/03/2003;;Montpellier;34000;PATRIMONIAL;AG14;26/09/2016
+CLI000015;DUMONT;Jade;03/03/1982;jade.dumont62@exemple-mail.fr;Bordeaux;33000;PARTICULIER;AG15;12/03/2008
+CLI000016;TRAORÉ;Alice;21/03/1996;alice.traore59@exemple-mail.fr;Limoges;87000;PROFESSIONNEL;AG16;19/09/2020
+CLI000017;LEGRAND;Fatou;13/12/1988;fatou.legrand72@exemple-mail.fr;Nantes;44000;PARTICULIER;AG17;19/08/2010
+CLI000018;  mathieu ;Jules;05/03/1989;jules.mathieu83@exemple-mail.fr;Angers;49000;PROFESSIONNEL;AG18;09/12/2022
+CLI000019;  gauthier ;Julien;23/01/1976;julien.gauthier26@exemple-mail.fr;Rennes;35000;PARTICULIER;AG19;18/09/2014
+CLI000019;  gauthier ;Julien;23/01/1976;julien.gauthier26@exemple-mail.fr;Rennes;35000;PARTICULIER;AG19;18/09/2014
+CLI000020;DIALLO;Valérie;20/12/1942;valerie.diallo84@exemple-mail.fr;Brest;29200;PARTICULIER;AG20;12/05/2008
+CLI000021;MARTINEZ;Karim;01/12/1983;karim.martinez26@exemple-mail.fr;Lille;59000;PATRIMONIAL;AG21;27/01/2013
+CLI000022;GAUTHIER;Isabelle;13/11/1985;isabelle.gauthier64@exemple-mail.fr;Amiens;80000;PARTICULIER;AG22;13/03/2022
+CLI000023;GUERIN;Nathan;06/01/1943;nathan.guerin38@exemple-mail.fr;Strasbourg;67000;PARTICULIER;AG23;25/08/2023
+CLI000024;MARTINEZ;Hugo;28/10/1948;hugo.martinez89@exemple-mail.fr;Nancy;54000;PROFESSIONNEL;AG24;01/11/2014
+CLI000025;MASSON;Mamadou;19/08/1980;mamadou.masson24@exemple-mail.fr;Clermont-Ferrand;63000;PROFESSIONNEL;AG09;05/09/2025
+CLI000026;DIALLO;Nathan;08/03/1998;nathan.diallo64@exemple-mail.fr;Puteaux;92800;PARTICULIER;AG03;23/12/2010
+CLI000027;PETIT;Gabriel;16/02/1953;gabriel.petit2@exemple-mail.fr;Montpellier;34000;PARTICULIER;AG14;30/01/2015
+CLI000028;MARTIN;Sarah;14/06/1947;sarah.martin26@exemple-mail.fr;Angers;49000;PARTICULIER;AG18;08/09/2018
+CLI000029;DURAND;Nathalie;03/02/1964;nathalie.durand97@exemple-mail.fr;Angers;49000;PARTICULIER;AG18;30/12/2019
+CLI000030;ANDRÉ;Yanis;16/08/1999;yanis.andre74@exemple-mail.fr;Nice;06000;PARTICULIER;AG11;29/01/2018
+CLI000031;NGUYEN;David;06/02/1952;david.nguyen29@exemple-mail.fr;Nancy;54000;PARTICULIER;AG24;30/03/2017
+CLI000032;HENRY;Thomas;17/02/2002;thomas.henry38@exemple-mail.fr;Brest;29200;PARTICULIER;AG20;27/04/2016
+CLI000033;LAMBERT;Sarah;29/07/1992;sarah.lambert65@exemple-mail.fr;Créteil;94000;PARTICULIER;AG05;12/11/2011
+CLI000034;MERCIER;Adam;24/08/1957;adam.mercier2@exemple-mail.fr;Nantes;44000;PATRIMONIAL;AG17;08/06/2013
+CLI000035;MERCIER;Jade;18/02/1971;jade.mercier46@exemple-mail.fr;Paris;75011;PROFESSIONNEL;AG02;01/07/2019
+CLI000036;BERNARD;David;28/05/1969;david.bernard39@exemple-mail.fr;Limoges;87000;PARTICULIER;AG16;25/04/2020
+CLI000037;  morel ;Théo;09/11/1981;;Limoges;87000;PROFESSIONNEL;AG16;27/10/2017
+CLI000038;MOREAU;Lucie;25/11/1978;lucie.moreau44@exemple-mail.fr;Lyon;69002;PARTICULIER;AG07;25/12/2018
+CLI000039;ROUSSEL;Paul;27/03/1946;paul.roussel52@exemple-mail.fr;Strasbourg;67000;PARTICULIER;AG23;11/04/2017
+CLI000039;ROUSSEL;Paul;27/03/1946;paul.roussel52@exemple-mail.fr;Strasbourg;67000;PARTICULIER;AG23;11/04/2017
+CLI000040;LEFEBVRE;Manon;22/01/1944;manon.lefebvre70@exemple-mail.fr;Lyon;69003;PARTICULIER;AG06;17/07/2019
+CLI000041;FRANÇOIS;Chloé;29/11/1956;chloe.francois92@exemple-mail.fr;Lille;59000;PATRIMONIAL;AG21;08/11/2015
+CLI000042;DA;Fatou;17/07/1987;fatou.da67@exemple-mail.fr;Lille;59000;PARTICULIER;AG21;27/11/2009
+CLI000043;  simon ;Emma;26/12/1974;emma.simon55@exemple-mail.fr;Lyon;69003;PARTICULIER;AG06;13/02/2011
+CLI000044;LAMBERT;Pierre;10/05/1967;pierre.lambert45@exemple-mail.fr;Toulouse;31000;PATRIMONIAL;AG13;14/03/2009
+CLI000045;BERTRAND;Clara;22/10/1965;clara.bertrand23@exemple-mail.fr;Montpellier;34000;PARTICULIER;AG14;29/06/2015
+CLI000046;ROUSSEAU;Hugo;20/04/1987;hugo.rousseau68@exemple-mail.fr;Versailles;78000;PARTICULIER;AG04;13/11/2022
+CLI000047;ROUX;Éric;02/10/1960;;Lyon;69002;PATRIMONIAL;AG07;10/02/2005
+CLI000048;MORIN;Paul;22/02/2000;paul.morin4@exemple-mail.fr;Angers;49000;PARTICULIER;AG18;03/02/2009
+CLI000049;TRAORÉ;Louis;24/08/2001;louis.traore69@exemple-mail.fr;Angers;49000;PARTICULIER;AG18;02/11/2017
+CLI000050;DURAND;Julie;11/11/1989;julie.durand73@exemple-mail.fr;Clermont-Ferrand;63000;PARTICULIER;AG09;07/11/2021

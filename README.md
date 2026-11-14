@@ -10,6 +10,7 @@ Each folder is a self-contained training.
 | [`playwright-tests-ia/`](playwright-tests-ia/README.md) | Playwright et IA — four labs and 25 exercises on one demo app (in French) | Playwright 1.63, TypeScript |
 | [`nlq-datasets/`](nlq-datasets/README.md) | NLQ & Datasets — two design labs: diagnose a model, then make it queryable in natural language (in French) | SQL DDL, YAML (nothing to run) |
 | [`nlq-snowflake-cortex/`](nlq-snowflake-cortex/README.md) | NLQ, Part 2 — Snowflake CoWork (formerly Snowflake Intelligence) & Cortex Analyst: query the same model in natural language, then prepare it for Cortex Analyst (in French) | Snowflake, Cortex Analyst |
+| [`databricks-data-engineers/`](databricks-data-engineers/README.md) | Databricks pour data engineers — eight labs on one fictional bank, from raw files in ADLS to a Power BI report (in French) | Azure Databricks, Unity Catalog, Delta, Databricks SQL |
 | [`python-traitement-donnees/`](python-traitement-donnees/README.md) | Python, initiation au traitement de données — nine labs on one air-quality dataset (in French) | Python 3.11, pandas 2.3, NumPy, Matplotlib, SciPy |
 | [`qlik-cloud-analytics/`](qlik-cloud-analytics/) | Qlik Cloud Analytics dashboard use case | Qlik Cloud |
 
