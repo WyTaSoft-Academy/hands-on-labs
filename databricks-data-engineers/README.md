@@ -38,6 +38,12 @@ Pendant la formation, ces fichiers sont déjà déposés dans ADLS : vous n'avez
 
 Chaque TP part du résultat du précédent.
 
+## L'aide-mémoire
+
+[`aide-memoire-pyspark-sql.md`](aide-memoire-pyspark-sql.md) : lire, transformer, agréger, joindre et
+écrire, en PySpark et en SQL côte à côte, plus les commandes Delta utiles. À garder ouvert pendant
+les TP.
+
 ## Les valeurs à remplacer
 
 Les énoncés citent des valeurs à remplacer par les vôtres, données par le formateur dans le chat :
