@@ -67,7 +67,8 @@ Puis **mettez-la en pause**.
    - un **filtre** sur le champ `region` du dataset `flux`.
 3. Essayez le filtre sur *Bretagne*. Quels widgets changent, compteurs compris ? Lesquels ne
    changent pas, et pourquoi ?
-4. **Publiez**, avec l'option *embed credentials* (vos identifiants intégrés).
+4. **Publiez**, avec l'option *embed credentials* (vos identifiants intégrés), nommée
+   *Share data permission* dans la boîte de publication.
 
 ## Étape 6 · Partager, en binôme (≈ 10 min)
 

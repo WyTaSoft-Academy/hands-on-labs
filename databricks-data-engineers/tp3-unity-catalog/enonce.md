@@ -82,7 +82,7 @@ personnelles (nom, prénom, e-mail, date de naissance), et rien d'autre de votre
 ### Étape 5 · Azure SQL, par Lakehouse Federation (≈ 20 min)
 
 1. Créez le foreign catalog `lumen_sql_stagiaire01`, sur la connection `conn_sqldb_dki`, base
-   `lumen`. Dans le Catalog Explorer, quels schemas et quelles tables y voyez-vous ?
+   `sqldb-dki`. Dans le Catalog Explorer, quels schemas et quelles tables y voyez-vous ?
 2. Combien d'agences, et dans combien de **régions** ?
 3. Le nombre de **clients distincts par région** : une jointure entre votre `bronze.clients` et
    la table `agences` d'Azure SQL, dans une seule requête.
