@@ -38,6 +38,12 @@ Pendant la formation, ces fichiers sont déjà déposés dans ADLS : vous n'avez
 
 Chaque TP part du résultat du précédent.
 
+## Le support de cours
+
+[`support-databricks-pour-data-engineers.pdf`](support-databricks-pour-data-engineers.pdf) : les
+slides des neuf modules en un seul PDF (351 pages). Les noms de ressources Azure y sont génériques
+(`dbw-formation`, `wh-formation`…) : ceux de votre plateforme vous sont donnés pendant la formation.
+
 ## L'aide-mémoire
 
 [`aide-memoire-pyspark-sql.md`](aide-memoire-pyspark-sql.md) : lire, transformer, agréger, joindre et
