@@ -1,67 +1,81 @@
-# TP 0 : premier contact avec le workspace
+# TP 0 : lire un lakehouse en 30 minutes
 
 **Module 1 · ≈ 30 min, restitution comprise · individuel**
 
-Avant de construire quoi que ce soit pour la Banque Lumen, on fait connaissance avec l'outil : où
-sont les choses, comment on lance une requête, et ce qui se passe quand on n'a pas le droit. On ne
-crée rien, et on n'ouvre pas encore les fichiers de la banque : c'est le TP 1, cet après-midi.
+Avant de construire la Banque Lumen, on apprend à lire un lakehouse qui existe déjà : celui de
+**Bakehouse**, une chaîne fictive de 48 boulangeries franchisées, fournie par Databricks dans le
+catalog `samples`. Quatre missions, quatre questions. On ne crée rien : tout se fait dans le
+**SQL editor**, sur le SQL warehouse partagé `wh-dki-formation`.
 
-Tout se fait dans le **SQL editor**, sur le SQL warehouse partagé `wh-dki-formation`.
+À la fin, vous collerez trois réponses dans le chat.
 
 ---
 
-## Étape 1 · Se connecter, régler l'interface (≈ 3 min)
+## Étape 0 · Se connecter (≈ 3 min)
 
 1. Ouvrez l'URL du workspace donnée par le formateur (`adb-….azuredatabricks.net`) et connectez-vous
    avec votre compte de formation.
 2. En haut à droite, votre profil → *Settings* → *Preferences* → *Language* : **English**. Les
    slides et la documentation emploient les noms anglais de l'interface.
 
-## Étape 2 · Le tour de la barre latérale (≈ 5 min)
+## Mission 1 · Où suis-je ? (≈ 5 min)
 
-Trouvez, et notez :
+Dans le *SQL Editor*, choisissez le warehouse `wh-dki-formation` en haut de l'éditeur.
 
-1. Dans *SQL Warehouses* : le warehouse `wh-dki-formation`. Son **type**, sa **size**, son **auto
-   stop**. Est-il démarré ?
-2. Dans *Workspace* : le chemin de **votre dossier personnel**.
-3. Dans *Catalog* : la liste des **catalogs** que vous voyez.
-4. Dans *Compute* : y a-t-il déjà des clusters ? Quelles **policies** vous sont proposées ?
-5. Dans *Jobs & Pipelines* : y a-t-il déjà des jobs ?
+1. `SELECT current_user(), current_catalog();` : qui êtes-vous, et dans quel catalog
+   travaillez-vous par défaut ?
+2. `SHOW CATALOGS;` : quels catalogs voyez-vous ?
+3. Listez les tables du schema `bakehouse` du catalog `samples`. Le nom complet d'une table a
+   **trois niveaux** : lesquels ?
+4. Dans *SQL Warehouses* : le **type**, la **size** et l'**auto stop** de `wh-dki-formation`.
 
-## Étape 3 · Le Catalog Explorer (≈ 5 min)
+## Mission 2 · Sous le capot (≈ 7 min)
 
-Ouvrez `samples` → `nyctaxi` → `trips`.
+Dans *Catalog*, ouvrez `samples` → `bakehouse` → `sales_transactions`.
 
-1. Onglet *Columns* : combien de colonnes ? Quel type pour `tpep_pickup_datetime`, pour
-   `fare_amount`, pour `pickup_zip` ?
-2. Onglet *Sample data* : à quoi ressemble une course ?
-3. Onglet *Details* : quel **type** de table ? Qui en est l'**owner** ?
+1. Onglets *Overview* et *Sample data* : combien de colonnes ? L'une d'elles ne devrait pas être
+   visible de tout le monde dans une vraie entreprise : laquelle ?
+2. Onglet *Details* : quel **type** de table ? Où sont **stockés** ses fichiers (*Storage
+   location*) ? Est-ce le même endroit que le warehouse qui exécute vos requêtes ?
+3. Dans le SQL Editor :
 
-## Étape 4 · Trois requêtes, un graphique (≈ 7 min)
+   ```sql
+   DESCRIBE HISTORY samples.bakehouse.sales_transactions;
+   ```
 
-Dans le *SQL Editor*, warehouse `wh-dki-formation` :
+   Combien de **versions** la table a-t-elle connues ? Quelles opérations ont créé les dernières ?
 
-1. `SELECT current_user(), current_catalog();` : qui êtes-vous, et quel est le catalog par défaut ?
-2. Le nombre de courses de `samples.nyctaxi.trips`.
-3. Les cinq codes postaux de départ (`pickup_zip`) les plus fréquents, avec le nombre de courses et
-   le prix moyen (`fare_amount`), arrondi au centime.
-4. Sous le résultat de la troisième requête : *+* → *Visualization*, un graphique en barres des
-   courses par code postal.
+## Mission 3 · Une question métier (≈ 10 min)
 
-## Étape 5 · Une limite (≈ 3 min)
+1. Combien de transactions, pour quel chiffre d'affaires (`totalPrice`), et sur quelle période
+   (`dateTime`) ?
+2. Les **cinq franchises** qui ont fait le plus de chiffre d'affaires : leur nom, leur ville, leur
+   nombre de transactions et leur chiffre d'affaires. Il faut joindre `sales_transactions` et
+   `sales_franchises` sur `franchiseID`.
+3. Sous le résultat : *+* → *Visualization*, un graphique en barres du chiffre d'affaires par
+   franchise.
+4. Quelle franchise a le **plus de transactions** ? Est-ce aussi celle qui fait le plus de chiffre
+   d'affaires ? Attention : regardez combien de franchises portent le même nom.
 
-Essayez d'écrire dans le catalog `samples` :
+## Mission 4 · Les limites et le coût (≈ 5 min)
 
-```sql
-CREATE TABLE samples.nyctaxi.essai AS SELECT 1 AS x;
-```
+1. Essayez d'écrire dans `samples` :
 
-Lisez le message d'erreur. **Qui** vous refuse, et que dit le message ?
+   ```sql
+   CREATE TABLE samples.bakehouse.essai AS SELECT 1 AS x;
+   ```
 
-## Étape 6 · L'historique (≈ 3 min)
+   Lisez le message d'erreur : **qui** refuse ? L'assistant propose peut-être une correction :
+   la suivriez-vous ? Refusez-la (*Reject*).
+2. Relancez **à l'identique** votre requête des cinq franchises. Dans *Query History*, ouvrez
+   ses deux exécutions : combien de lignes chacune a-t-elle lues, et combien de temps a-t-elle pris ?
+   Pourquoi la seconde est-elle si rapide, et que vous coûte-t-elle ?
 
-1. *Query history* : retrouvez vos requêtes de l'étape 4. Laquelle a pris le plus de temps ?
-2. Ouvrez le **query profile** de la troisième. Combien de lignes ont été lues ?
+## Bonus
+
+Dans le SQL Editor, demandez à l'assistant (*Genie Code*) en français : « Quel est le produit le
+plus vendu en quantité dans samples.bakehouse.sales_transactions ? ». Lisez le SQL qu'il propose
+avant de l'exécuter : est-ce celui que vous auriez écrit ?
 
 ---
 
@@ -69,9 +83,13 @@ Lisez le message d'erreur. **Qui** vous refuse, et que dit le message ?
 
 | Question | Votre réponse |
 |---|---|
-| Type, size et auto stop de `wh-dki-formation` | |
-| Les catalogs que vous voyez | |
-| L'owner de `samples.nyctaxi.trips` | |
-| Le nombre de courses | |
-| Le code postal de départ le plus fréquent | |
-| Qui refuse l'écriture dans `samples`, et pourquoi | |
+| Les trois niveaux du nom d'une table | |
+| La colonne qui ne devrait pas être visible de tous | |
+| Le nombre de versions de `sales_transactions` | |
+| La franchise au plus gros chiffre d'affaires | |
+| La franchise qui a le plus de transactions | |
+| Qui refuse l'écriture dans `samples` | |
+| Les lignes lues par la seconde exécution, et pourquoi | |
+
+**Dans le chat**, en fin de TP : la franchise au plus gros chiffre d'affaires, celle qui a le plus
+de transactions, et le nombre de lignes lues par la seconde exécution.

@@ -27,7 +27,7 @@ Pendant la formation, ces fichiers sont déjà déposés dans ADLS : vous n'avez
 
 | TP | Module | Sujet |
 |---|---|---|
-| [TP 0](tp0-premier-contact/enonce.md) | 1 | Premier contact : la barre latérale, le catalog `samples`, trois requêtes, un refus |
+| [TP 0](tp0-premier-contact/enonce.md) | 1 | Lire un lakehouse : le catalog `samples.bakehouse`, une table Delta et son historique, une jointure, un refus, un cache |
 | [TP 1](tp1-workspace-sources/enonce.md) | 2 | Workspace et sources externes : lister et lire les fichiers bruts dans ADLS |
 | [TP 2](tp2-clusters/enonce.md) | 3 | Clusters : un cluster single-node sous cluster policy |
 | [TP 3](tp3-unity-catalog/enonce.md) | 4 | Unity Catalog : un catalog à soi, les tables bronze, une view partagée, la base Azure SQL |
