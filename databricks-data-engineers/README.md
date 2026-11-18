@@ -1,8 +1,11 @@
 # Databricks pour data engineers : travaux pratiques
 
 Les énoncés et les données des travaux pratiques de la formation **Databricks pour data
-engineers** (3 jours, Azure Databricks). Les corrigés ne sont pas publiés : ils sont présentés en
-restitution, à la fin de chaque TP.
+engineers** (3 jours, Azure Databricks), avec leurs corrigés : `corrige.sql` ou `corrige.py` à côté de
+chaque énoncé, et pour le TP 5 les deux notebooks `tp5-arrivee.py`, `tp5-gold.sql` et la définition
+du job `job.json`. Les notebooks `.py` sont au format source Databricks (*Workspace* → *Import*).
+Remplacez `<stockage>` par le nom du storage account, `<domaine>` par le domaine des comptes et
+`stagiaire01` par votre compte.
 
 ## Le jeu de données : Banque Lumen
 

@@ -107,7 +107,7 @@ métriques du `MERGE` ? Le nombre de lignes de la silver a-t-il changé ? Et la 
    *If/else condition* : `{{tasks.arrivee.values.insertions}} > 0`, et ne lancez `gold` que si
    elle est vraie. Rejouez le 1<sup>er</sup> juillet : que se passe-t-il ?
 2. **Le job en code.** Sur la page du job : *View as code* (YAML ou JSON). Comparez avec
-   la définition présentée en restitution.
+   `job.json` du corrigé.
 
 ---
 

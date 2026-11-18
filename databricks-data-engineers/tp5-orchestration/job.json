@@ -1,0 +1,39 @@
+{
+  "name": "lumen-quotidien-stagiaire01",
+  "description": "Banque Lumen (fictive) : applique l'arrivée du jour à la silver, puis recalcule la gold. Corrigé du TP 5, non exécuté. Aucun compute décrit : les tâches tournent en serverless ; sinon, ajouter existing_cluster_id.",
+  "parameters": [
+    { "name": "catalog", "default": "lumen_stagiaire01" },
+    { "name": "jour", "default": "2026-07-03" },
+    { "name": "stockage", "default": "<stockage>" }
+  ],
+  "tasks": [
+    {
+      "task_key": "arrivee",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/stagiaire01@<domaine>/tp5-arrivee",
+        "source": "WORKSPACE"
+      },
+      "max_retries": 0,
+      "timeout_seconds": 1800
+    },
+    {
+      "task_key": "gold",
+      "depends_on": [ { "task_key": "arrivee" } ],
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/stagiaire01@<domaine>/tp5-gold",
+        "source": "WORKSPACE"
+      },
+      "max_retries": 0,
+      "timeout_seconds": 1800
+    }
+  ],
+  "schedule": {
+    "quartz_cron_expression": "0 0 6 * * ?",
+    "timezone_id": "Europe/Paris",
+    "pause_status": "PAUSED"
+  },
+  "email_notifications": {
+    "on_failure": [ "stagiaire01@<domaine>" ]
+  },
+  "max_concurrent_runs": 1
+}

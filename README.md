@@ -15,5 +15,5 @@ Each folder is a self-contained training.
 | [`qlik-cloud-analytics/`](qlik-cloud-analytics/) | Qlik Cloud Analytics dashboard use case | Qlik Cloud |
 
 Solutions are not published: the labs are meant to be worked through. Exceptions:
-[`nlq-datasets/`](nlq-datasets/README.md) and [`python-traitement-donnees/`](python-traitement-donnees/README.md)
-publish theirs, next to each lab.
+[`nlq-datasets/`](nlq-datasets/README.md), [`python-traitement-donnees/`](python-traitement-donnees/README.md) and
+[`databricks-data-engineers/`](databricks-data-engineers/README.md) publish theirs, next to each lab.
